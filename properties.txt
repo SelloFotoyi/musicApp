@@ -1,3 +1,4 @@
+***Container***
 * flex-direction
 >row(default) || row-reverse || column || column-reverse
 
@@ -10,3 +11,9 @@
 *align-items
 >flex-start(default) || flex-end || center || stretch || baseline
 >>stretch value is visible if you dont specify children's height 
+******************
+
+***Item***
+*order
+>by default, all items have order = 0, an item with a
+higher/lower order value will go higher/lower, respectfully.
