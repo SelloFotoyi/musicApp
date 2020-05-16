@@ -4,14 +4,16 @@
 	border:2px solid red;
 	display:flex;
 	/*flex-direction:column;*/
-	/*flex-wrap:wrap-reverse; */
+	flex-wrap:wrap;
 	/*justify-content:flex-end;*/
-	align-items:center;
+	/*align-items:baseline;*/
+	align-content:flex-end;
 }
 
 .child{
 	width: 100px;
 	/*height: 100px;*/
 	background-color: #8cacea;
-	margin: 8px;	
+	margin: 8px;
+	/*margin-right:8px;	*/
 }
