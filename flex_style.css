@@ -11,15 +11,21 @@
 }
 
 .child{
-	width: 100px;
-	/*height: 100px;*/
+	min-width: 100px;
+	height: 100px;
 	background-color: #8cacea;
 	margin: 8px;
+	
 	/*margin-right:8px;	*/
+	/*flex-grow:1;*/
+	/*flex-shrink:1*/
+	
 }
 
-#parent div:nth-child(4){
-	order:-1;
+#parent div:nth-child(2){
+	flex-basis:auto;
+	/*flex-shrink:2;*/
+	
 }
 /* #parent div:nth-child(2){
 	order:2;

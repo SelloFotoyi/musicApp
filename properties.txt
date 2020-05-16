@@ -15,5 +15,17 @@
 
 ***Item***
 *order
->by default, all items have order = 0, an item with a
+>any number (+/-)
+>>by default, all items have order = 0, an item with a
 higher/lower order value will go higher/lower, respectfully.
+
+*grow/shrink
+>0 || any positive number
+>>resizes the item, relative to the space of its container
+
+*flex-basis
+>auto || any number(+unit(px/% etc))
+>>works the same as max-width, but works hand-in-hand with 
+the set width of the item. "auto" isnt effective when a certain 
+width of the item is being set, but becomes effective when min-width
+is set. It also doesn't override the max-width and grow properties. 
