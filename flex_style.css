@@ -1,10 +1,10 @@
 #parent{
-	width:1000px;
+	width:500px;
 	height:1000px;
 	border:2px solid red;
 	display:flex;
 	/*flex-direction:column;*/
-	flex-wrap:wrap;
+	/*flex-wrap:wrap;
 	/*justify-content:flex-end;*/
 	/*align-items:baseline;*/
 	/*align-content:flex-end;*/
@@ -15,7 +15,7 @@
 	height: 100px;
 	background-color: #8cacea;
 	margin: 8px;
-	
+	flex:default;
 	/*margin-right:8px;	*/
 	/*flex-grow:1;*/
 	/*flex-shrink:1*/
@@ -23,7 +23,7 @@
 }
 
 #parent div:nth-child(2){
-	flex-basis:auto;
+	/*flex-basis:auto;*/
 	/*flex-shrink:2;*/
 	
 }

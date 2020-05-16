@@ -29,3 +29,9 @@ higher/lower order value will go higher/lower, respectfully.
 the set width of the item. "auto" isnt effective when a certain 
 width of the item is being set, but becomes effective when min-width
 is set. It also doesn't override the max-width and grow properties. 
+
+*flex(shorthand)
+>args:(grow shrink basis)
+>>grow.default == 0,shrink.default == 1, basis.default == auto 
+>>flex(none) === grow == 0, shrink == 0, basis == auto.
+>>flex(default) === grow == 0, shrink == 1, basis == auto.
