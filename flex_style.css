@@ -1,8 +1,10 @@
 #parent{
 	width:1000px;
 	height:1000px;
-	display:flex;
 	border:2px solid red;
+	display:flex;
+	flex-direction:row-reverse;
+	
 }
 
 .child{
