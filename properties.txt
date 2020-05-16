@@ -1,2 +1,9 @@
 * flex-direction
->row || row-reverse || column || column-reverse
+>row(default) || row-reverse || column || column-reverse
+
+*flex-wrap
+>wrap || nowrap(default) || wrap-reverse
+
+*justify-content
+>flex-start || flex-end || center || space-around || space-between
+

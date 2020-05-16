@@ -3,7 +3,9 @@
 	height:1000px;
 	border:2px solid red;
 	display:flex;
-	flex-direction:row-reverse;
+	/*flex-direction:row-reverse;*/
+	/*flex-wrap:wrap-reverse;*/
+	/*justify-content:space-between;*/
 	
 }
 
