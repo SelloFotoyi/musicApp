@@ -5,5 +5,8 @@
 >wrap || nowrap(default) || wrap-reverse
 
 *justify-content
->flex-start || flex-end || center || space-around || space-between
+>flex-start(default) || flex-end || center || space-around || space-between
 
+*align-items
+>flex-start(default) || flex-end || center || stretch || baseline
+>>stretch value is visible if you dont specify children's height 
