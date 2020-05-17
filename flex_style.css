@@ -1,21 +1,34 @@
 ul{
 	width:90%;
 	height:50px;
-	border:2px solid red;
-	background-color:LightGrey;
+	/*border:2px solid red;
+	background-color:LavenderBlush;*/
 	list-style:none;
 	display:flex;
 	
 }
 
 li{
-	flex:0 0 auto;
-	background-color:SkyBlue;
+	text-align:center;
+	flex-basis:100px;
 	margin:0.9%;
 	padding:0.2%;
+	/*border:1px solid red;*/
+}
+li a{
+	text-decoration:none;
+}
+li a:hover{
+	background-color:MistyRose;
+	color:red;
+}
+#logo img{
+	height:35px;
+	width:35px;
+	top:-5%;
 }
 li:nth-child(1){
-	margin:auto;
+	margin-right:auto;
 }
 /*#parent{
 	width:100%;
