@@ -1,10 +1,27 @@
-/*#playList{
-	width:80%;
+#playList{
+	width:50%;
 	border:1px solid red;
 	list-style:none;
 	display:flex;
 	flex-direction:column;
 }
+.trackDetail{
+	margin-left:-40px;
+}
+.track{
+	margin-left:-40px;
+	list-style:none;
+	display:flex;
+	
+}
+.track li{
+	flex-basis:200px;
+	padding:2px;
+}
+.trackDetail:nth-child(even){
+	background-color:LightGrey;
+}
+
 
 
 /* ul{
