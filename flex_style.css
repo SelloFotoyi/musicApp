@@ -1,34 +1,43 @@
 ul{
 	width:90%;
 	height:50px;
-	/*border:2px solid red;
-	background-color:LavenderBlush;*/
+	/*border:2px solid red;*/
+	background-color:rgb(229,229,229);
 	list-style:none;
 	display:flex;
+	flex-wrap:wrap;
+	margin-bottom:0;
 	
 }
 
+#coloring{
+	width:92.95%;
+	height:25px;
+	background-color:SkyBlue;
+	
+}
 li{
 	text-align:center;
 	flex-basis:100px;
-	margin:0.9%;
-	padding:0.2%;
+	margin-top:0.9%;
+	padding-top:0.2%;
 	/*border:1px solid red;*/
 }
 li a{
 	text-decoration:none;
 }
 li a:hover{
-	background-color:MistyRose;
 	color:red;
 }
 #logo img{
-	height:35px;
-	width:35px;
-	top:-5%;
+	height:30px;
+	width:30px;
+	
 }
 li:nth-child(1){
+	align-self:flex-start;
 	margin-right:auto;
+	
 }
 /*#parent{
 	width:100%;
