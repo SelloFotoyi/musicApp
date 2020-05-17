@@ -39,3 +39,7 @@ is set. It also doesn't override the max-width and grow properties.
 		(relative flex-items,with widths determined by content)
 >>flex:1 === grow == 1, shrink == 1,basis == 0
 		(absolute flex-items, equal widths, irrespective of content)
+*************
+
+*auto margin
+>>once used on flex-items, the justify-content property becomes ineffective
