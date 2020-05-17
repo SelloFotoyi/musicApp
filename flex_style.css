@@ -1,7 +1,16 @@
-ul{
+/*#playList{
+	width:80%;
+	border:1px solid red;
+	list-style:none;
+	display:flex;
+	flex-direction:column;
+}
+
+
+/* ul{
 	width:90%;
 	height:50px;
-	/*border:2px solid red;*/
+	/*border:2px solid red;
 	background-color:rgb(229,229,229);
 	list-style:none;
 	display:flex;
@@ -21,7 +30,7 @@ li{
 	flex-basis:100px;
 	margin-top:0.9%;
 	padding-top:0.2%;
-	/*border:1px solid red;*/
+	/*border:1px solid red;
 }
 li a{
 	text-decoration:none;
@@ -73,4 +82,4 @@ li:nth-child(1){
 }
 #parent div:nth-child(1){
 	order:3; 
-}*/
+}*/ 
