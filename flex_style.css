@@ -1,18 +1,24 @@
-/*#musicPlayer{
-	width:80%;
-	height:80%;
+#musicPlayer{
+	width:100%;
+	height:100%;
+	margin:0;
 	border:1px solid red;
 	list-style:none;
 	display:flex;
 	flex-direction:column;
 }
 #charter{
-	
+	margin-left:-40px;
+	flex-basis:600px;
+	background-color:black;
+	color:white;
 }
 #currentlyPlaying{
-	
+	margin-left:-40px;
+	flex-basis:100px;
+	background-color:green;
 }
-*/
+
 /*#playList{
 	width:50%;
 	border:1px solid red;
