@@ -25,6 +25,7 @@
 }
 .sideMenuIcon{
 	flex-basis:4px;
+	margin-right:20px;
 	background-color:black;
 	
 }
@@ -58,6 +59,7 @@
 }
 .trackOption{
 	margin-left:-40px;
+	margin-top:40px;
 	background-color:blue;
 	color:red;
 }
