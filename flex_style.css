@@ -21,6 +21,19 @@
 #charterTracks{
 	flex-grow:1;
 	background-color:lightGreen;
+	list-style:none;
+	display:flex;
+	flex-direction:column;
+}
+#face{
+	margin-left:-40px;
+	flex-basis:300px;
+	background-color:lawnGreen;
+}
+#playList{
+	margin-left:-40px;
+	flex-basis:300px;
+	background-color:paleGreen;
 }
 #currentlyPlaying{
 	margin-left:-40px;
