@@ -1,4 +1,19 @@
-#playList{
+/*#musicPlayer{
+	width:80%;
+	height:80%;
+	border:1px solid red;
+	list-style:none;
+	display:flex;
+	flex-direction:column;
+}
+#charter{
+	
+}
+#currentlyPlaying{
+	
+}
+*/
+/*#playList{
 	width:50%;
 	border:1px solid red;
 	list-style:none;
@@ -21,7 +36,7 @@
 .trackDetail:nth-child(even){
 	background-color:LightGrey;
 }
-
+*/
 
 
 /* ul{
