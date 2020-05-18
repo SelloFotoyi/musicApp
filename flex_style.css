@@ -15,7 +15,7 @@
 	display:flex;
 }
 #sideMenu{
-	width:10px;
+	max-width:10px;
 	background-color:red;
 	list-style:none;
 	display:flex;
@@ -40,6 +40,15 @@
 	margin-left:-40px;
 	flex-basis:300px;
 	background-color:lawnGreen;
+	display:flex;
+}
+#faceImage{
+	flex-basis:350px;
+	background-color:grey;
+}
+#chartInfo{
+	flex-grow:1;
+	background-color:maroon;
 }
 #playList{
 	margin-left:-40px;
