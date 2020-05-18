@@ -50,6 +50,17 @@
 	flex-basis:100px;
 	background-color:green;
 }
+#trackOptions{
+	list-style:none;
+	display:flex;
+	justify-content:space-between;
+	align-content:flex-end;
+}
+.trackOption{
+	margin-left:-40px;
+	background-color:blue;
+	color:red;
+}
 
 /*#playList{
 	width:50%;
