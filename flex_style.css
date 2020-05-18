@@ -17,6 +17,16 @@
 #sideMenu{
 	flex-basis:10px;
 	background-color:red;
+	list-style:none;
+	display:flex;
+	flex-direction:column;
+	justify-content:space-around;
+	align-items:flex-end;
+}
+.sideMenuIcon{
+	flex-basis:4px;
+	background-color:black;
+	
 }
 #charterTracks{
 	flex-grow:1;
