@@ -45,6 +45,13 @@
 #faceImage{
 	flex-basis:350px;
 	background-color:grey;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+#chart_image{
+	width:275px;
+	height:250px; /*maybe 300px*/
 }
 #chartInfo{
 	flex-grow:1;
