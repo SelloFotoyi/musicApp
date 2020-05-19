@@ -16,7 +16,7 @@
 }
 #sideMenu{
 	max-width:10px;
-	background-color:red;
+	background-color:LightGrey;
 	list-style:none;
 	display:flex;
 	flex-direction:column;
@@ -79,7 +79,7 @@
 }
 #playLister{
 	height:300px;
-	border:1px solid transparent;
+	border:5px solid transparent;
 	list-style:none;
 	display:flex;
 	flex-direction:column;
