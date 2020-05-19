@@ -46,3 +46,6 @@ is set. It also doesn't override the max-width and grow properties.
 *************************************
 **********MUSIC APP******************
 feature: it's currently top 10, add scroll later for more tracks
+feature(later):maybe hide side menu, make visible upon request
+feature(optimistic!:)):enable "mixer", next song kindly kicking in wile
+					current song is still playing

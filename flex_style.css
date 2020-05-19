@@ -56,6 +56,13 @@
 #chartInfo{
 	flex-grow:1;
 	background-color:maroon;
+	list-style:none;
+	display:flex;
+	flex-direction:column;
+}
+#playAddSongs{
+	margin-top:auto;
+	margin-bottom:10px;
 }
 #playList{
 	margin-left:-40px;
