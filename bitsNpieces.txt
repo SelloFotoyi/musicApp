@@ -25,7 +25,7 @@
 				<li>More Info</li>
 			</ul>
 		</li>
-	</ul>
+</ul>
 	
 	<ul id = "trackOptions">
 				<li>trackDetail</li>
