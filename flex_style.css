@@ -53,8 +53,37 @@
 #playList{
 	margin-left:-40px;
 	flex-basis:300px;
-	background-color:paleGreen;
+	background-color:white;
 }
+#playLister{
+	height:300px;
+	border:1px solid purple;
+	list-style:none;
+	display:flex;
+	flex-direction:column;
+	justify-content:space-between;
+}
+.trackDetail{
+	margin-left:-40px;
+}
+.track{
+	margin-left:-40px;
+	list-style:none;
+	display:flex;
+	justify-content:space-between;
+}
+.track li{
+	flex-basis:200px;
+	padding:2px;
+}
+.trackDetail:nth-child(even){
+	background-color:LightGrey;
+	color:black;
+}
+.trackDetail:nth-child(odd){
+	color:black;
+}
+
 #currentlyPlaying{
 	margin-left:-40px;
 	flex-basis:100px;

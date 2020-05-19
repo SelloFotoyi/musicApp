@@ -43,3 +43,6 @@ is set. It also doesn't override the max-width and grow properties.
 
 *auto margin
 >>once used on flex-items, the justify-content property becomes ineffective
+*************************************
+**********MUSIC APP******************
+feature: it's currently top 10, add scroll later for more tracks
