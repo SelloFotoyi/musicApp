@@ -57,7 +57,7 @@
 }
 #playLister{
 	height:300px;
-	border:1px solid purple;
+	border:1px solid transparent;
 	list-style:none;
 	display:flex;
 	flex-direction:column;
@@ -67,10 +67,15 @@
 	margin-left:-40px;
 }
 .track{
-	margin-left:-40px;
 	list-style:none;
 	display:flex;
 	justify-content:space-between;
+}
+#playHeader{
+	margin-left:0;
+	font-weight:bold;
+	background-color:black;
+	color:white;
 }
 .track li{
 	flex-basis:200px;
