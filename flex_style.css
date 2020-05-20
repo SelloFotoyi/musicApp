@@ -112,7 +112,7 @@
 }
 
 #currentlyPlaying{
-	flex-basis:100px;
+	max-height:100px;
 	background-color:grey;
 	display:flex;
 	justify-content:space-between;
@@ -121,15 +121,23 @@
 	margin-left:-40px;
 	list-style:none;
 	border:5px solid transparent;
-	background-color:red;
+	background-color:grey;
 	flex-basis:250px;
 	display:flex;
 	justify-content:space-around;
 }
 #currentSongDetails li{
 	margin:1px;
-	background-color:yellow;
+	background-color:grey;
+	color:white;
 	flex-basis:150px;
+}
+#currentSongImage{
+	max-width:80px;
+}
+#footerImage{
+	width:80px;
+	height:90px;
 }
 #songTitleAndArtist{
 	list-style:none;
