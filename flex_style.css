@@ -112,14 +112,45 @@
 }
 
 #currentlyPlaying{
-	margin-left:-40px;
 	flex-basis:100px;
-	background-color:green;
-}
-#trackOptions{
-	list-style:none;
+	background-color:grey;
 	display:flex;
 	justify-content:space-between;
+}
+#currentSongDetails{
+	margin-left:-40px;
+	list-style:none;
+	border:5px solid transparent;
+	background-color:red;
+	flex-basis:250px;
+	display:flex;
+	justify-content:space-around;
+}
+#currentSongDetails li{
+	margin:1px;
+	background-color:yellow;
+	flex-basis:150px;
+}
+#songTitleAndArtist{
+	list-style:none;
+	display:flex;
+	flex-direction:column;
+	justify-content:flex-start;
+}
+#songTitleAndArtist li{
+	margin-left:-35px;
+	flex-basis:25px;
+} 
+#songProgress{
+		align-self:center;
+}
+#trackOptions{
+	margin-top:-50px;
+	flex-basis:350px;
+	align-self:center;
+	list-style:none;
+	display:flex;
+	justify-content:space-around;
 	align-content:flex-end;
 }
 .trackOption{
