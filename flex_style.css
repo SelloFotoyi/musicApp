@@ -124,7 +124,7 @@
 	background-color:grey;
 	flex-basis:250px;
 	display:flex;
-	justify-content:space-around;
+	justify-content:space-between;
 }
 #currentSongDetails li{
 	margin:1px;
@@ -151,6 +151,8 @@
 } 
 #currentAudio{
 		align-self:center;
+		width:550px;
+		height:30px;
 }
 #trackOptions{
 	margin-top:-50px;
