@@ -22,8 +22,7 @@
 }
 #charterTracks{
 	flex-grow:1;
-	background-color:LightGreen;
-	border:1px solid transparent;
+	border:1px solid white;
 	display:flex;
 	flex-direction:column;
 }
@@ -76,7 +75,7 @@
 #playHeader{
 	margin-left:0;
 	font-weight:bold;
-	background-color:black;
+	background-color:grey;
 	color:white;
 }
 .track div{
