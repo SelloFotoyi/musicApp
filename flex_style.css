@@ -1,43 +1,28 @@
-#musicPlayer{
-	width:97%;
-	height:100%;
-	margin:0;
-	border:1px solid red;
-	list-style:none;
-	display:flex;
-	flex-direction:column;
-}
 #charter{
-	margin-left:-40px;
-	flex-basis:600px;
 	background-color:black;
 	color:white;
 	display:flex;
 }
 #sideMenu{
-	max-width:10px;
+	flex-basis:25px;
 	background-color:LightGrey;
-	list-style:none;
+	
 	display:flex;
 	flex-direction:column;
-	justify-content:space-around;
-	align-items:flex-end;
+	justify-content:space-between;
 }
 .sideMenuIcon{
-	flex-basis:4px;
-	margin-right:20px;
+	margin:3px;
 	background-color:black;
-	
 }
 #charterTracks{
 	flex-grow:1;
-	background-color:lightGreen;
-	list-style:none;
+	background-color:LightGreen;
+	
 	display:flex;
 	flex-direction:column;
 }
 #face{
-	margin-left:-40px;
 	flex-basis:300px;
 	background-color:lawnGreen;
 	display:flex;
@@ -56,7 +41,7 @@
 #chartInfo{
 	flex-grow:1;
 	background-color:grey;
-	list-style:none;
+	
 	display:flex;
 	flex-direction:column;
 }
@@ -65,33 +50,24 @@
 	margin-bottom:10px;
 }
 #playAddMenu{
-	margin-left:-40px;
-	list-style:none;
 	display:flex;
 }
-#playAddMenu li{
+#playAddMenu div{
 	margin:10px;
 }
 #playList{
-	margin-left:-40px;
-	flex-basis:300px;
+	flex-basis:245px;
 	background-color:white;
 }
 #playLister{
-	height:300px;
-	border:5px solid transparent;
-	list-style:none;
+	height:242px;
+	border:3px solid transparent;
 	display:flex;
 	flex-direction:column;
-	justify-content:space-between;
 }
-.trackDetail{
-	margin-left:-40px;
-}
+
 .track{
-	list-style:none;
 	display:flex;
-	justify-content:space-between;
 }
 #playHeader{
 	margin-left:0;
@@ -99,7 +75,7 @@
 	background-color:black;
 	color:white;
 }
-.track li{
+.track div{
 	flex-basis:200px;
 	padding:2px;
 }
@@ -118,15 +94,13 @@
 	justify-content:space-between;
 }
 #currentSongDetails{
-	margin-left:-40px;
-	list-style:none;
 	border:5px solid transparent;
 	background-color:grey;
 	flex-basis:250px;
 	display:flex;
 	justify-content:space-between;
 }
-#currentSongDetails li{
+#currentSongDetails div{
 	margin:1px;
 	background-color:grey;
 	color:white;
@@ -140,13 +114,11 @@
 	height:90px;
 }
 #songTitleAndArtist{
-	list-style:none;
 	display:flex;
 	flex-direction:column;
 	justify-content:flex-start;
 }
-#songTitleAndArtist li{
-	margin-left:-35px;
+#songTitleAndArtist div{
 	flex-basis:25px;
 } 
 #currentAudio{
@@ -158,7 +130,6 @@
 	margin-top:-50px;
 	flex-basis:350px;
 	align-self:center;
-	list-style:none;
 	display:flex;
 	justify-content:space-around;
 	align-content:flex-end;
