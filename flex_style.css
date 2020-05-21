@@ -1,12 +1,17 @@
 #charter{
+	width:100%;
+	height:100%;
 	background-color:black;
 	color:white;
 	display:flex;
+	flex-direction:column;
+}
+#upperSection{
+	display:flex;
 }
 #sideMenu{
-	flex-basis:25px;
+	flex-basis:30px;
 	background-color:LightGrey;
-	
 	display:flex;
 	flex-direction:column;
 	justify-content:space-between;
@@ -18,12 +23,12 @@
 #charterTracks{
 	flex-grow:1;
 	background-color:LightGreen;
-	
+	border:1px solid transparent;
 	display:flex;
 	flex-direction:column;
 }
 #face{
-	flex-basis:300px;
+	flex-basis:250px;
 	background-color:lawnGreen;
 	display:flex;
 }
@@ -35,13 +40,12 @@
 	align-items:center;
 }
 #chart_image{
-	width:275px;
+	width:250px;
 	height:250px; /*maybe 300px*/
 }
 #chartInfo{
 	flex-grow:1;
 	background-color:grey;
-	
 	display:flex;
 	flex-direction:column;
 }
@@ -56,7 +60,7 @@
 	margin:10px;
 }
 #playList{
-	flex-basis:245px;
+	flex-basis:40px;
 	background-color:white;
 }
 #playLister{
@@ -88,32 +92,35 @@
 }
 
 #currentlyPlaying{
-	max-height:100px;
+	flex:0 0 50px;
 	background-color:grey;
 	display:flex;
 	justify-content:space-between;
 }
 #currentSongDetails{
+	max-height:50px;
 	border:5px solid transparent;
 	background-color:grey;
 	flex-basis:250px;
 	display:flex;
 	justify-content:space-between;
 }
-#currentSongDetails div{
-	margin:1px;
-	background-color:grey;
-	color:white;
-	flex-basis:150px;
-}
 #currentSongImage{
-	max-width:80px;
+	flex-basis:50px;
+	max-height:50px;
+	margin:1px;
+	color:white;
 }
 #footerImage{
-	width:80px;
-	height:90px;
+	width:50px;
+	height:50px;
 }
 #songTitleAndArtist{
+	flex-grow:1;
+	max-height:50px;
+	margin:1px;
+	color:white;
+	background-color:grey;
 	display:flex;
 	flex-direction:column;
 	justify-content:flex-start;
