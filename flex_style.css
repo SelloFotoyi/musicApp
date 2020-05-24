@@ -74,7 +74,7 @@
 	justify-content:space-between;
 }
 .trackDetail div{
-	flex-basis:100px;
+	flex-basis:250px;
 }
 .trackDetail:nth-child(even){
 	color:black;
@@ -83,10 +83,13 @@
 	background-color:LightGrey;
 	color:black;
 }
-.trackDetail:nth-child(1){
+.trackDetail:nth-child(1){/*1st row in playList*/
 	background-color:grey;
 	color:black;
 	font-weight:bold;
+}
+.listTrackNumber div:nth-child(4){
+	color:blue;
 }
 #playHeader{
 	margin-left:0;
