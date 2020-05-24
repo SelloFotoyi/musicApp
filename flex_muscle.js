@@ -13,9 +13,9 @@ window.onload = function(){
 	trackList[6] = "middle school.mp3";
 	trackList[7] = "Run away.mp3";
 	trackList[8] = "Soulful.mp3";
-	trackList[9] = "Summer Daze(Dukesouls Mellow Touch).mp3";
+	trackList[9] = "Summer Daze (Dukesouls Mellow Touch).mp3";
 	
-	var currentTrack = 3;	// @start of array
+	var currentTrack = 0;	// @start of array
 	var trackSrc = document.getElementById("currentAudio");
 	
 	//assign a track from track list to track src
@@ -38,14 +38,19 @@ window.onload = function(){
 	//event functions
 	function next(){
 		//add outOfBound check later
-		currentTrack++;
+		if(currentTrack <= (trackList.length+1)){
+			currentTrack++;
+		}
 		trackSrc.src = trackList[currentTrack];
 		
 	}
 	
 	function previous(){
 		//add outOfBound check later
-		currentTrack--;
+		if(currentTrack >0){
+			currentTrack--;
+		}
+		
 		trackSrc.src = trackList[currentTrack];
 		
 	}
