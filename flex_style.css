@@ -59,35 +59,40 @@
 	margin:10px;
 }
 #playList{
-	flex-basis:40px;
 	background-color:white;
-}
-#playLister{
 	height:242px;
-	border:3px solid transparent;
+	border:0.5px solid transparent;
+
 	display:flex;
 	flex-direction:column;
 }
-
-.track{
+.trackDetail{
+	height:30px;
+	padding-left:20px;
+	padding-right:20px;
 	display:flex;
+	justify-content:space-between;
+}
+.trackDetail div{
+	flex-basis:100px;
+}
+.trackDetail:nth-child(even){
+	color:black;
+}
+.trackDetail:nth-child(odd){
+	background-color:LightGrey;
+	color:black;
+}
+.trackDetail:nth-child(1){
+	background-color:grey;
+	color:black;
+	font-weight:bold;
 }
 #playHeader{
 	margin-left:0;
 	font-weight:bold;
 	background-color:grey;
 	color:white;
-}
-.track div{
-	flex-basis:200px;
-	padding:2px;
-}
-.trackDetail:nth-child(even){
-	background-color:LightGrey;
-	color:black;
-}
-.trackDetail:nth-child(odd){
-	color:black;
 }
 
 #currentlyPlaying{
