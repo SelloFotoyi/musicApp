@@ -151,6 +151,11 @@
 .trackOption{
 	margin-left:-40px;
 	margin-top:40px;
-	background-color:blue;
-	color:red;
+	background-color:grey;
+	color:white;
+}
+.trackOption:hover{
+	cursor:pointer;
+	background-color:black;
+	
 }
