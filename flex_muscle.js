@@ -1,15 +1,8 @@
 window.onload = function(){ 
-
-	/*var nextTrack = document.getElementById("next");
-	nextTrack.style.color = 'black';
-	
-	var trackNums = document.getElementsByClassName("listTrackNumber");
-	
-	trackNums[2].style.color = 'red';*/
 	
  	var trackList = new Array();	//size not known yet
 	var trackNums = document.getElementsByClassName("listTrackName");
-	trackNums[7].innerHTML = "Changed track name";
+	trackNums[7].innerHTML = "Changed track nameever";
 	
 	trackList[0] = "Belvedere.mp3";
 	trackList[1] = "Blue Wednesday.mp3";
@@ -22,11 +15,11 @@ window.onload = function(){
 	trackList[8] = "Soulful.mp3";
 	trackList[9] = "Summer Daze(Dukesouls Mellow Touch).mp3";
 	
-	var currentTrack = 0;	// @start of array
-	var trackSrc = document.getElementById("trackSource");
+	var currentTrack = 3;	// @start of array
+	var trackSrc = document.getElementById("currentAudio");
 	
 	//assign a track from track list to track src
-	trackSrc.src = trackList[0];
+	trackSrc.src = trackList[currentTrack];
 	
 	//play functionality
 	var nextTrack = document.getElementById("next");
