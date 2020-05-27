@@ -6,8 +6,9 @@ window.onload = function(){
 	var listArtistNames = document.getElementsByClassName("listArtistName");
 	/*var listDuration = document.getElementByClassName("listDuration"); */
 	
-	listTrackNumbers[7].innerHTML = 100;
-	listTrackNames[5].innerHTML = "ZILEON";
+/*	listTrackNumbers[7].innerHTML = 100;
+	listTrackNames[5].innerHTML = "ZILEON";*/
+
 	
 	trackList[0] = "Belvedere.mp3";
 	trackList[1] = "Blue Wednesday.mp3";
@@ -28,6 +29,7 @@ window.onload = function(){
 	//assign playlist items to corresponding metadata
 	//track names
 	for(let i = 0; i < trackList.length; i ++){
+		listTrackNumbers[i].innerHTML = i+1;
 		listTrackNames[i].innerHTML = trackList[i]; //update once metadta is obtained
 	}
 
@@ -38,6 +40,11 @@ window.onload = function(){
 	
 	//assign a track from track list to track src
 	trackSrc.src = trackList[currentTrack];
+	
+	//highlight currently playing track on playlist
+	var playlistRow = document.getElementsByClassName("trackDetail");
+	playlistRow[currentTrack+1].style.border= "1px solid red";
+	
 	
 	//play functionality
 	var nextTrack = document.getElementById("next");
@@ -61,18 +68,32 @@ window.onload = function(){
 		//add outOfBound check later
 		if(currentTrack <= (trackList.length+1)){
 			currentTrack++;
+			trackSrc.src = trackList[currentTrack];
+			playlistRow[currentTrack].style.border= "1px solid red";
+			playlistRow[currentTrack-1].style.border= "0px solid transparent";
 		}
-		trackSrc.src = trackList[currentTrack];
+		else {
+			currentTrack = trackList.length;
+		}
+		
+		
+		
 		
 	}
 	
 	function previous(){
 		//add outOfBound check later
-		if(currentTrack >0){
-			currentTrack--;
+		if(currentTrack =>1){
+			currentTrack--;	
+			trackSrc.src = trackList[currentTrack];
+			playlistRow[currentTrack].style.border= "1px solid red";
+			playlistRow[currentTrack+1].style.border=
+				"0px solid transparent";
+		}
+		else {
+			currentTrack = 1;
 		}
 		
-		trackSrc.src = trackList[currentTrack];
 		
 	}
 	
