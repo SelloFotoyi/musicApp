@@ -1,13 +1,13 @@
 window.onload = function(){ 
 	
- 	var trackList = new Array();	//size not known yet
+ 	var trackList = new Array(10);	//size not known yet
 	var listTrackNumbers = document.getElementsByClassName("listTrackNumber");
  	var listTrackNames = document.getElementsByClassName("listTrackName");
 	var listArtistNames = document.getElementsByClassName("listArtistName");
 	/*var listDuration = document.getElementByClassName("listDuration"); */
 	
-/*	listTrackNumbers[7].innerHTML = 100;
-	listTrackNames[5].innerHTML = "ZILEON";*/
+/*	listTrackNumbers[7].innerHTML = 100;*/
+	
 
 	
 	trackList[0] = "Belvedere.mp3";
@@ -20,6 +20,7 @@ window.onload = function(){
 	trackList[7] = "Run away.mp3";
 	trackList[8] = "Soulful.mp3";
 	trackList[9] = "Summer Daze (Dukesouls Mellow Touch).mp3";
+	
 
 	//mp3 file metadata...
 	/*var meta_tracktitle = "-";
@@ -44,6 +45,7 @@ window.onload = function(){
 	//highlight currently playing track on playlist
 	var playlistRow = document.getElementsByClassName("trackDetail");
 	playlistRow[currentTrack+1].style.border= "1px solid red";
+	playlistRow[currentTrack+1].style.fontWeight = "bold";
 	
 	
 	//play functionality
@@ -66,14 +68,19 @@ window.onload = function(){
 	//event functions
 	function next(){
 		//add outOfBound check later
-		if(currentTrack <= (trackList.length+1)){
+		if(currentTrack <listTrackNumbers.length){
 			currentTrack++;
 			trackSrc.src = trackList[currentTrack];
-			playlistRow[currentTrack].style.border= "1px solid red";
-			playlistRow[currentTrack-1].style.border= "0px solid transparent";
+			listTrackNumbers[0].innerHTML = currentTrack+1;
+			highLight();
+/* 			playlistRow[currentTrack].style.border= "1px solid red";
+			playlistRow[currentTrack-1].style.border= "0px solid transparent"; */
 		}
 		else {
-			currentTrack = trackList.length;
+			currentTrack = 0;//(listTrackNumbers.size-1);
+			trackSrc.src = trackList[currentTrack];
+			listTrackNumbers[0].innerHTML = currentTrack+1;
+			
 		}
 		
 		
@@ -86,12 +93,17 @@ window.onload = function(){
 		if(currentTrack =>1){
 			currentTrack--;	
 			trackSrc.src = trackList[currentTrack];
-			playlistRow[currentTrack].style.border= "1px solid red";
+			listTrackNumbers[0].innerHTML = currentTrack+1;
+			highLight(currentTrack);
+/* 			playlistRow[currentTrack].style.border= "1px solid red";
 			playlistRow[currentTrack+1].style.border=
-				"0px solid transparent";
+				"0px solid transparent"; */
 		}
 		else {
-			currentTrack = 1;
+			
+			currentTrack = 0;
+			trackSrc.src = trackList[currentTrack];
+			listTrackNumbers[0].innerHTML = currentTrack+1;
 		}
 		
 		
@@ -109,6 +121,25 @@ window.onload = function(){
 		
 	}
 	//event functions: end
+	function highLight(){
+	 	for(let row of playlistRow){
+			row.style.border="0px";
+			row.style.fontWeight="normal"
+		}
+		playlistRow[currentTrack+1].style.border = "1px solid red";
+		playlistRow[currentTrack+1].style.fontWeight = "bold";
+		/*
+		for(let i = 0; i < playlistRow.size; i++){
+			if(i == current_track){
+				playlistRow[current_track].style.border = "1px solid red";
+				playlistRow[current_track].style.fontWeight = "bold";
+			}
+			else{
+				playlistRow[i].style.border = "0px";
+				playlistRow[i].style.fontWeight = "normal";
+			}
+		}*/
+	}
  
 	
 
