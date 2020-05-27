@@ -36,16 +36,17 @@ window.onload = function(){
 
 	listTrackNames[2].innerHTML = trackList[2];
 
-	var currentTrack = 0;	// @start of array
+	var tracksIndex = 0;	// @start of array
+	var currentTrack = tracksIndex+1; //for user
 	var trackSrc = document.getElementById("currentAudio");
 	
 	//assign a track from track list to track src
-	trackSrc.src = trackList[currentTrack];
+	trackSrc.src = trackList[tracksIndex];
 	
 	//highlight currently playing track on playlist
 	var playlistRow = document.getElementsByClassName("trackDetail");
-	playlistRow[currentTrack+1].style.border= "1px solid red";
-	playlistRow[currentTrack+1].style.fontWeight = "bold";
+	playlistRow[currentTrack].style.border= "1px solid red";
+	playlistRow[currentTrack].style.fontWeight = "bold";
 	
 	
 	//play functionality
@@ -68,13 +69,12 @@ window.onload = function(){
 	//event functions
 	function next(){
 		//add outOfBound check later
-		if(currentTrack <listTrackNumbers.length){
+		if(tracksIndex <listTrackNumbers.length){
+			tracksIndex++;
 			currentTrack++;
-			trackSrc.src = trackList[currentTrack];
-			listTrackNumbers[0].innerHTML = currentTrack+1;
+			trackSrc.src = trackList[tracksIndex];
 			highLight();
-/* 			playlistRow[currentTrack].style.border= "1px solid red";
-			playlistRow[currentTrack-1].style.border= "0px solid transparent"; */
+			
 		}
 		else {
 			currentTrack = 0;//(listTrackNumbers.size-1);
@@ -90,14 +90,12 @@ window.onload = function(){
 	
 	function previous(){
 		//add outOfBound check later
-		if(currentTrack =>1){
-			currentTrack--;	
-			trackSrc.src = trackList[currentTrack];
-			listTrackNumbers[0].innerHTML = currentTrack+1;
-			highLight(currentTrack);
-/* 			playlistRow[currentTrack].style.border= "1px solid red";
-			playlistRow[currentTrack+1].style.border=
-				"0px solid transparent"; */
+		if(tracksIndex =>1){
+			tracksIndex--;
+			currentTrack--;
+			trackSrc.src = trackList[tracksIndex];
+			highLight();
+			
 		}
 		else {
 			
@@ -110,6 +108,12 @@ window.onload = function(){
 	}
 	
 	function stop(){
+		tracksIndex = 0;
+		currentTrack = tracksIndex+1;
+		trackSrc.src = trackList[tracksIndex];
+		trackSrc.pause();
+		highLight();
+		
 		
 	}
 	
@@ -124,21 +128,13 @@ window.onload = function(){
 	function highLight(){
 	 	for(let row of playlistRow){
 			row.style.border="0px";
-			row.style.fontWeight="normal"
+			row.style.fontWeight="normal";
 		}
-		playlistRow[currentTrack+1].style.border = "1px solid red";
-		playlistRow[currentTrack+1].style.fontWeight = "bold";
-		/*
-		for(let i = 0; i < playlistRow.size; i++){
-			if(i == current_track){
-				playlistRow[current_track].style.border = "1px solid red";
-				playlistRow[current_track].style.fontWeight = "bold";
-			}
-			else{
-				playlistRow[i].style.border = "0px";
-				playlistRow[i].style.fontWeight = "normal";
-			}
-		}*/
+		playlistRow[0].style.fontWeight="bold";
+		playlistRow[currentTrack].style.border = "1px solid red";
+		playlistRow[currentTrack].style.fontWeight = "bold";
+		
+
 	}
  
 	
