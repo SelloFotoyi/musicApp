@@ -55,7 +55,7 @@ window.onload = function(){
 	var stopMusic = document.getElementById("stop");
 	var loopMusic = document.getElementById("loop");
 	var shuffleMusic = document.getElementById("shufl");
-	/*var isLoop = true; *///loop if true
+	var isLoop = true;
 	
 
 	
@@ -69,18 +69,21 @@ window.onload = function(){
 	
 	//event functions
 	function next(){
-		if(currentTrack == 10){
+		if(currentTrack > 10){
 			stop();
-			return;
+			if(!isLoop){
+				return;
+			}
+			
 		}
 		//add outOfBound check later
 		if(tracksIndex <listTrackNumbers.length){
-			tracksIndex++;
-			currentTrack++;
+			
 			trackSrc.src = trackList[tracksIndex];
 			
 			highLight();
-		
+			tracksIndex++;
+			currentTrack++;
 			
 		}
 		else {
@@ -98,6 +101,7 @@ window.onload = function(){
 	function previous(){
 		if(currentTrack == 1){
 			stop();
+			return;
 		}
 /* 		if(tracksIndex<1){
 				prevTrack.removeEventListener();
@@ -132,6 +136,7 @@ window.onload = function(){
 	}
 	
 	function loop(){
+		isLoop = !isLoop;
 		
 	}
 	
