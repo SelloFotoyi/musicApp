@@ -65,19 +65,22 @@ window.onload = function(){
 	stopMusic.addEventListener("click", stop);
 	loopMusic.addEventListener("click", loop);
 	shuffleMusic.addEventListener("click", shuffle);
+	trackSrc.addEventListener("ended", next);
 	
 	//event functions
 	function next(){
 		if(currentTrack == 10){
-			nextTrack.removeEventListener();
+			stop();
+			return;
 		}
 		//add outOfBound check later
 		if(tracksIndex <listTrackNumbers.length){
 			tracksIndex++;
 			currentTrack++;
 			trackSrc.src = trackList[tracksIndex];
+			
 			highLight();
-			listTrackNumbers[0].innerHTML = currentTrack;
+		
 			
 		}
 		else {
@@ -94,7 +97,7 @@ window.onload = function(){
 	
 	function previous(){
 		if(currentTrack == 1){
-			prevTrack.removeEventListener();
+			stop();
 		}
 /* 		if(tracksIndex<1){
 				prevTrack.removeEventListener();
@@ -106,7 +109,7 @@ window.onload = function(){
 			currentTrack--;
 			trackSrc.src = trackList[tracksIndex];
 			highLight();
-			listTrackNumbers[0].innerHTML = currentTrack;
+			
 		}
 		else {
 			
@@ -146,6 +149,11 @@ window.onload = function(){
 		playlistRow[currentTrack].style.fontWeight = "bold";
 		
 
+	}
+	
+	function tester(){
+		listTrackNumbers[0].innerHTML = 100;
+		
 	}
 	
 	
