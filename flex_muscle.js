@@ -68,12 +68,16 @@ window.onload = function(){
 	
 	//event functions
 	function next(){
+		if(currentTrack == 10){
+			nextTrack.removeEventListener();
+		}
 		//add outOfBound check later
 		if(tracksIndex <listTrackNumbers.length){
 			tracksIndex++;
 			currentTrack++;
 			trackSrc.src = trackList[tracksIndex];
 			highLight();
+			listTrackNumbers[0].innerHTML = currentTrack;
 			
 		}
 		else {
@@ -89,19 +93,26 @@ window.onload = function(){
 	}
 	
 	function previous(){
+		if(currentTrack == 1){
+			prevTrack.removeEventListener();
+		}
+/* 		if(tracksIndex<1){
+				prevTrack.removeEventListener();
+				return;
+			} */
 		//add outOfBound check later
 		if(tracksIndex =>1){
 			tracksIndex--;
 			currentTrack--;
 			trackSrc.src = trackList[tracksIndex];
 			highLight();
-			
+			listTrackNumbers[0].innerHTML = currentTrack;
 		}
 		else {
 			
 			currentTrack = 0;
 			trackSrc.src = trackList[currentTrack];
-			listTrackNumbers[0].innerHTML = currentTrack+1;
+			listTrackNumbers[0].innerHTML = currentTrack;
 		}
 		
 		
@@ -136,6 +147,9 @@ window.onload = function(){
 		
 
 	}
+	
+	
+	
  
 	
 
