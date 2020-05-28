@@ -18,7 +18,14 @@
 }
 .sideMenuIcon{
 	margin:3px;
-	background-color:black;
+	
+}
+.sideMenuIcon img{
+	width:20px;
+	height:20px;
+}
+.sideMenuIcon:hover{
+	cursor:pointer;
 }
 #charterTracks{
 	flex-grow:1;
@@ -52,11 +59,29 @@
 	margin-top:auto;
 	margin-bottom:10px;
 }
+#playAll{
+	text-align:center;
+}
+#playAll img{
+	width:20px;
+	height:20px;
+}
+#addSongs img{
+	width:20px;
+	height:20px;
+}
+#settings img{
+	width:20px;
+	height:20px;
+}
 #playAddMenu{
 	display:flex;
 }
 #playAddMenu div{
 	margin:10px;
+}
+#playAddMenu div:hover{
+	cursor:pointer;
 }
 #playList{
 	background-color:white;
@@ -153,6 +178,11 @@
 	margin-top:40px;
 	background-color:grey;
 	color:white;
+}
+.trackOption img{
+	width:30px;
+	height:30px;
+	background-color:grey;
 }
 .trackOption:hover{
 	cursor:pointer;
