@@ -86,8 +86,9 @@
 #playList{
 	background-color:white;
 	height:250px;
+	overflow:scroll;
+	overflow-x:hidden;
 	border:0.5px solid transparent;
-
 	display:flex;
 	flex-direction:column;
 }
