@@ -4,9 +4,12 @@ window.onload = function(){
 	var listTrackNumbers = document.getElementsByClassName("listTrackNumber");
  	var listTrackNames = document.getElementsByClassName("listTrackName");
 	var listArtistNames = document.getElementsByClassName("listArtistName");
+	var trackMarker = document.getElementsByClassName("mark"); 
 	/*var listDuration = document.getElementByClassName("listDuration"); */
 	
 /*	listTrackNumbers[7].innerHTML = 100;*/
+
+	var markerImg = document.getElementById("trackMarker");
 	
 
 	
@@ -45,7 +48,6 @@ window.onload = function(){
 	
 	//highlight currently playing track on playlist
 	var playlistRow = document.getElementsByClassName("trackDetail");
-	playlistRow[currentTrack].style.border= "1px solid red";
 	playlistRow[currentTrack].style.fontWeight = "bold";
 	
 	
@@ -150,14 +152,17 @@ window.onload = function(){
 			row.style.fontWeight="normal";
 		}
 		playlistRow[0].style.fontWeight="bold";
-		playlistRow[currentTrack].style.border = "1px solid red";
+		playlistRow[currentTrack].style.border = "1px solid grey";
 		playlistRow[currentTrack].style.fontWeight = "bold";
 		
 
 	}
 	
-	function tester(){
-		listTrackNumbers[0].innerHTML = 100;
+	function playAll(){
+		tracksIndex = 0;
+		currentTrack = tracksIndex+1;
+		trackSrc.src = trackList[tracksIndex];
+		highLight();
 		
 	}
 	

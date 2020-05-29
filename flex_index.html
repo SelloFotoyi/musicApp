@@ -29,7 +29,7 @@
 						<div>Track title</div>
 						<div id = "playAddSongs">
 							<div id = "playAddMenu">
-								<div id = "playAll"><img src = "icons/play5.png" title = "play all"></div>
+								<div id = "playAll"><img src = "icons/play5.png" title = "play all" onclick = "playAll()"></div>
 								<div id = "addSongs"><img src = "icons/add_solid.png" title = "add song"></div>
 								<div id = "settings"><img src = "icons/setting2.png" title = "settings"> </div>
 							</div>
@@ -37,7 +37,44 @@
 						
 					</div>
 					
-				</div>
+					<div id = "mainSettings">
+						<form id = "settingsForm">
+							<label>Chart name</label><span class = "spacing"><label style="margin-left:170px">Theme</label></span> <br>
+							<input type = "text" name = "chartName"><span class = "spacing"> <input style="margin-left:50px" type = "color" name = "theme"> + 
+								<input type = "color" name = "theme2"><br>
+							<br>
+		
+								
+							<label>Font</label>  <span class = "spacing"><label style="margin-left:190px">Order of playing songs</label></span> <br>
+							<input type = "text" list = "fontList">
+							<datalist id = "fontList">
+								<option value = "font 1">
+								<option value = "font 2">
+								<option value = "font 2">
+								<option value = "font 3">
+							</datalist>
+							
+							<span class = "spacing"><input style="margin-left:40px" type = "text" list = "playingOrder"></span>
+							<datalist id = "playingOrder">
+								<option value = "Ascending">
+								<option value = "Descending">
+								<option value = "Shuffled">
+							</datalist>
+							<br>							
+						
+
+							<br>
+							<input type = "checkbox" name = "autostop">Autostop chart  <input style = "margin-left:115px" type = "checkbox" name = "defaultImg">Set default chart image <br>
+							Play chart for: <input type = "time" name = "stopTime">  <input style="visibility:hidden" id = "fileElem" type = "file" name = "fileElem" accept = "image/*">
+																					<label style = "margin-left:250px" id = "defaultImageSelector" for="fileElem">Select image</label>
+							<br><br><br>
+							<input type = "submit" name = "submit" value = "save">
+							<input type = "submit" name = "cancel" value = "cancel">
+							
+						</form>						
+					
+					</div>	
+				</div>	
 				
 				<div id = "playList">
 					<div class = "trackDetail">
@@ -51,7 +88,7 @@
 				
 					<div class = "trackDetail">			
 						<div class = "listTrackNumber">1</div>
-						<div class = "mark">mark</div>
+						<div class = "mark"><!--<img id = "trackMraker" src = "icons/marker.png">--></div>
 						<div class = "listTrackName">trackName</div>
 						<div class = "listArtistName">ArtistName</div>
 						<div class = "listDuration">Duration</div>
@@ -60,7 +97,7 @@
 				
 					<div class = "trackDetail">			
 						<div class = "listTrackNumber">2</div>
-						<div class = "mark">mark</div>
+						<div class = "mark"></div>
 						<div class = "listTrackName">trackName</div>
 						<div class = "listArtistName">ArtistName</div>
 						<div class = "listDuration">Duration</div>
@@ -69,7 +106,7 @@
 				
 					<div class = "trackDetail">
 						<div class = "listTrackNumber">3</div>
-						<div class = "mark">mark</div>
+						<div class = "mark"></div>
 						<div class = "listTrackName">trackName</div>
 						<div class = "listArtistName">ArtistName</div>
 						<div>Duration</div>
@@ -78,7 +115,7 @@
 				
 					<div class = "trackDetail">		
 						<div class = "listTrackNumber">4</div>
-						<div class = "mark">mark</div>
+						<div class = "mark"></div>
 						<div class = "listTrackName">trackName</div>
 						<div class = "listArtistName">ArtistName</div>
 						<div>Duration</div>
@@ -87,7 +124,7 @@
 						
 					<div class = "trackDetail">
 						<div class = "listTrackNumber">5</div>
-						<div class = "mark">mark</div>
+						<div class = "mark"></div>
 						<div class = "listTrackName">trackName</div>
 						<div class = "listArtistName">ArtistName</div>
 						<div class = "listDuration">Duration</div>
@@ -96,7 +133,7 @@
 				
 					<div class = "trackDetail">		
 						<div class = "listTrackNumber">6</div>
-						<div class = "mark">mark</div>
+						<div class = "mark"></div>
 						<div class = "listTrackName">trackName</div>
 						<div class = "listArtistName">ArtistName</div>
 						<div class = "listDuration">Duration</div>
@@ -105,7 +142,7 @@
 				
 					<div class = "trackDetail">			
 						<div class = "listTrackNumber">7</div>
-						<div class = "mark">mark</div>
+						<div class = "mark"></div>
 						<div class = "listTrackName">trackName</div>
 						<div class = "listArtistName">ArtistName</div>
 						<div class = "listDuration">Duration</div>
@@ -114,7 +151,7 @@
 						
 					<div class = "trackDetail">
 						<div class = "listTrackNumber">8</div>
-						<div class = "mark">mark</div>
+						<div class = "mark"></div>
 						<div class = "listTrackName">trackName</div>
 						<div class = "listArtistName">ArtistName</div>
 						<div class = "listDuration">Duration</div>
@@ -123,7 +160,7 @@
 				
 					<div class = "trackDetail">
 						<div class = "listTrackNumber">9</div>
-						<div class = "mark">mark</div>
+						<div class = "mark"></div>
 						<div class = "listTrackName">trackName</div>
 						<div class = "listArtistName">ArtistName</div>
 						<div class = "listDuration">Duration</div>
@@ -132,7 +169,7 @@
 				
 					<div class = "trackDetail">			
 						<div class = "listTrackNumber">10</div>
-						<div class = "mark">mark</div>
+						<div class = "mark"></div>
 						<div class = "listTrackName">trackName</div>
 						<div class = "listArtistName">ArtistName</div>
 						<div class = "listDuration">Duration</div>
