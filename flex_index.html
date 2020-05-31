@@ -33,12 +33,20 @@
 							
 						
 						</div>
+						<div id = "songAdder">
+							<input style = "visibility:hidden" id = "songAdd" type = "file" name = "songAdd">
+						</div>
 						<div id = "playAddSongs">
 							<div id = "playAddMenu">
 								<div id = "searchSong"><img src = "icons/search2.png" title = "find song"></div>
 								<div id = "playAll"><img src = "icons/play5.png" title = "play all" onclick = "playAll()"></div>
-								<div id = "addSongs"><img src = "icons/add_solid.png" title = "add song"></div>
 								<div id = "settings"><img src = "icons/setting2.png" title = "settings"> </div>
+								<div id = "addSongs">
+									<!---->
+									<label id = "addSongSelector" for="songAdd">
+										<img src = "icons/add_solid.png" title = "add song">
+									</label>
+								</div>
 							</div>
 						</div>
 						

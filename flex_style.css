@@ -128,6 +128,9 @@
 #playAddMenu div:hover{
 	cursor:pointer;
 }
+#playAddMenu label{
+	cursor:pointer;
+}
 #playList{
 	background-color:white;
 	height:250px;
