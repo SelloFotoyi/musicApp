@@ -5,14 +5,8 @@ window.onload = function(){
  	var listTrackNames = document.getElementsByClassName("listTrackName");
 	var listArtistNames = document.getElementsByClassName("listArtistName");
 	var trackMarker = document.getElementsByClassName("mark"); 
-	/*var listDuration = document.getElementByClassName("listDuration"); */
-	
-/*	listTrackNumbers[7].innerHTML = 100;*/
 
-	var markerImg = document.getElementById("trackMarker");
-	
-
-	
+		
 	trackList[0] = "Belvedere.mp3";
 	trackList[1] = "Blue Wednesday.mp3";
 	trackList[2] = "Favorite Drive.mp3";
@@ -25,10 +19,7 @@ window.onload = function(){
 	trackList[9] = "Summer Daze (Dukesouls Mellow Touch).mp3";
 	
 
-	//mp3 file metadata...
-	/*var meta_tracktitle = "-";
-	var meta_artistName = "Unknown Artist";
-	var meta_duration = 0;*/ //must be a Date Object
+
 	
 	//assign playlist items to corresponding metadata
 	//track names
@@ -37,7 +28,7 @@ window.onload = function(){
 		listTrackNames[i].innerHTML = trackList[i]; //update once metadta is obtained
 	}
 
-	listTrackNames[2].innerHTML = trackList[2];
+
 
 	var tracksIndex = 0;	// @start of array
 	var currentTrack = tracksIndex+1; //for user
@@ -48,7 +39,7 @@ window.onload = function(){
 	
 	//highlight currently playing track on playlist
 	var playlistRow = document.getElementsByClassName("trackDetail");
-	playlistRow[currentTrack].style.fontWeight = "bold";
+	playlistRow[tracksIndex].style.fontWeight = "bold";
 	
 	
 	//play functionality
@@ -74,7 +65,7 @@ window.onload = function(){
 	
 	//event functions
 	function next(){
-		if(currentTrack > 10){
+		if(currentTrack > listTrackNumbers.length){
 			stop();
 			if(!isLoop){
 				return;
@@ -82,19 +73,20 @@ window.onload = function(){
 			
 		}
 		//add outOfBound check later
-		if(tracksIndex <listTrackNumbers.length){
+		if(tracksIndex <listTrackNumbers.length-1){
 			
+			tracksIndex++;
 			trackSrc.src = trackList[tracksIndex];
 			
 			highLight();
-			tracksIndex++;
+			
 			currentTrack++;
 			
 		}
 		else {
-			currentTrack = 0;//(listTrackNumbers.size-1);
-			trackSrc.src = trackList[currentTrack];
-			listTrackNumbers[0].innerHTML = currentTrack+1;
+			tracksIndex = 0;//(listTrackNumbers.size-1);
+			trackSrc.src = trackList[tracksIndex];
+			highLight();
 			
 		}
 		
@@ -113,7 +105,7 @@ window.onload = function(){
 				return;
 			} */
 		//add outOfBound check later
-		if(tracksIndex =>1){
+		if(tracksIndex >1){
 			tracksIndex--;
 			currentTrack--;
 			trackSrc.src = trackList[tracksIndex];
@@ -121,10 +113,10 @@ window.onload = function(){
 			
 		}
 		else {
-			
-			currentTrack = 0;
-			trackSrc.src = trackList[currentTrack];
-			listTrackNumbers[0].innerHTML = currentTrack;
+			tracksIndex = 0;
+			currentTrack = tracksIndex+1;;
+			trackSrc.src = trackList[tracksIndex];
+			highLight();
 		}
 		
 		
@@ -154,9 +146,9 @@ window.onload = function(){
 			row.style.border="0px";
 			row.style.fontWeight="normal";
 		}
-		playlistRow[0].style.fontWeight="bold";
-		playlistRow[currentTrack].style.border = "1px solid grey";
-		playlistRow[currentTrack].style.fontWeight = "bold";
+		
+		playlistRow[tracksIndex].style.border = "1px solid grey";
+		playlistRow[tracksIndex].style.fontWeight = "bold";
 		
 
 	}

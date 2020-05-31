@@ -137,9 +137,12 @@
 	height:250px;
 	overflow:auto;
 	overflow-x:hidden;
-	border:0.5px solid transparent;
+	border:5px solid white;
 	display:flex;
 	flex-direction:column;
+}
+#playList div{
+	height:30px;
 }
 .mark img{
 	height:15px;
@@ -156,11 +159,12 @@
 }
 .trackDetail div{
 	flex-basis:300px;
+	padding:5px;
 }
 .trackDetail div:nth-child(1){/*track number column*/
 	flex-basis:10px;
 	margin:5px;
-	margin-top:0;
+	margin-top:5px;
 }
 .trackDetail div:nth-child(2){/*track marker column*/
 	flex-basis:10px;
@@ -174,11 +178,11 @@
 	background-color:LightGrey;
 	color:black;
 }
-.trackDetail:nth-child(1){/*1st row in playList*/
+/*.trackDetail:nth-child(1){/*1st row in playList
 	background-color:grey;
 	color:black;
 	font-weight:bold;
-}
+}*/
 .listTrackNumber div:nth-child(4){
 	color:blue;
 }
