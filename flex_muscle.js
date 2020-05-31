@@ -58,6 +58,7 @@ window.onload = function(){
 	var loopMusic = document.getElementById("loop");
 	var shuffleMusic = document.getElementById("shufl");
 	var isLoop = true;
+	var playAllSongs = document.getElementById("playAll");
 	
 
 	
@@ -68,6 +69,8 @@ window.onload = function(){
 	loopMusic.addEventListener("click", loop);
 	shuffleMusic.addEventListener("click", shuffle);
 	trackSrc.addEventListener("ended", next);
+	playAllSongs.addEventListener("click", playAll);
+	
 	
 	//event functions
 	function next(){
@@ -163,7 +166,6 @@ window.onload = function(){
 		currentTrack = tracksIndex+1;
 		trackSrc.src = trackList[tracksIndex];
 		highLight();
-		
 	}
 	
 	
