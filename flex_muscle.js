@@ -7,6 +7,7 @@ window.onload = function(){
 	var trackMarker = document.getElementsByClassName("mark"); 
 	
 	var settingsForm = document.getElementById("settingsForm");
+	
 
 		
 	trackList[0] = "Belvedere.mp3";
@@ -169,8 +170,28 @@ window.onload = function(){
 		
 		document.getElementById("chartHeading").innerHTML = 
 			settingsForm.elements["chartName"].value;
+		themeSettings();	
+			
 	}
 	
+	function themeSettings(){
+		document.getElementById("charterTracks").style.backgroundColor
+			= settingsForm.elements["theme1"].value;
+		document.getElementById("currentlyPlaying").style.backgroundColor
+			= settingsForm.elements["theme1"].value;
+		
+		
+		for(let i = 0; i < playlistRow.length; i++){
+			if (i %2 == 0){
+				playlistRow[i].style.backgroundColor =
+				settingsForm.elements["theme2"].value;
+			}
+				
+		}
+		
+
+		
+	}
  
 	
 
