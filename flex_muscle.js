@@ -65,7 +65,12 @@ window.onload = function(){
 	trackSrc.addEventListener("ended", next);
 	playAllSongs.addEventListener("click", playAll);
 	
-	document.getElementById("saveButton").addEventListener("click",settings);
+	document.getElementById("saveButton")
+		.addEventListener("click",settings);
+	document.getElementById("cancelButton")
+		.addEventListener("click",closeSettings);
+	document.getElementById("settingsIcon")
+		.addEventListener("click", openSettings);
 	
 	
 	//event functions
@@ -166,11 +171,20 @@ window.onload = function(){
 		highLight();
 	}
 	
+	
+	function openSettings(){
+		document.getElementById("mainSettings")
+		 .style.visibility = "visible";
+	}
+	
 	function settings(){
 		
 		document.getElementById("chartHeading").innerHTML = 
 			settingsForm.elements["chartName"].value;
-		themeSettings();	
+		themeSettings();
+		closeSettings();
+		
+		
 			
 	}
 	
@@ -188,9 +202,12 @@ window.onload = function(){
 			}
 				
 		}
-		
-
-		
+			
+	}
+	
+	function closeSettings(){
+		document.getElementById("mainSettings")
+			.style.visibility = "hidden";
 	}
  
 	
