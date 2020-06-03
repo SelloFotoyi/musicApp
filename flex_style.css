@@ -59,7 +59,7 @@
 }
 #mainSettings{
 	flex-grow:1;
-	visibility:hidden;
+	/*visibility:hidden;*/
 }
 #settingsForm{
 	background-color:rgb(245,245,245);
@@ -83,6 +83,9 @@
 }
 .spacing{
 	margin-left:15px;
+}
+#saveButton:hover{
+	color:red;
 }
 #searchBar{
 	margin-top:auto;

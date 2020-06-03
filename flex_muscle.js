@@ -5,6 +5,8 @@ window.onload = function(){
  	var listTrackNames = document.getElementsByClassName("listTrackName");
 	var listArtistNames = document.getElementsByClassName("listArtistName");
 	var trackMarker = document.getElementsByClassName("mark"); 
+	
+	var settingsForm = document.getElementById("settingsForm");
 
 		
 	trackList[0] = "Belvedere.mp3";
@@ -61,6 +63,8 @@ window.onload = function(){
 	shuffleMusic.addEventListener("click", shuffle);
 	trackSrc.addEventListener("ended", next);
 	playAllSongs.addEventListener("click", playAll);
+	
+	document.getElementById("saveButton").addEventListener("click",settings);
 	
 	
 	//event functions
@@ -138,6 +142,7 @@ window.onload = function(){
 	}
 	
 	function shuffle(){
+	
 		
 	}
 	//event functions: end
@@ -160,7 +165,11 @@ window.onload = function(){
 		highLight();
 	}
 	
-	
+	function settings(){
+		
+		document.getElementById("chartHeading").innerHTML = 
+			settingsForm.elements["chartName"].value;
+	}
 	
  
 	

@@ -24,7 +24,7 @@
 					</div>
 					
 					<div id = "chartInfo">
-						<div><h1>Chart Name (# of songs added)</h1></div>
+						<div><h1 id = "chartHeading">Chart Name (# of songs added)</h1></div>
 						<div>Current Artist name</div>
 						<div>Track title</div>
 <!--						<div id = "searchBar">
@@ -54,7 +54,7 @@
 					<div id = "mainSettings">
 						<form id = "settingsForm">
 							<label>Chart name</label><span class = "spacing"><label style="margin-left:170px">Theme</label></span> <br>
-							<input type = "text" name = "chartName"><span class = "spacing"> <input style="margin-left:50px" type = "color" name = "theme"> + 
+							<input type = "text" id = "chartName" name = "chartName"><span class = "spacing"> <input style="margin-left:50px" type = "color" name = "theme"> + 
 								<input type = "color" name = "theme2"><br>
 							<br>
 		
@@ -82,7 +82,7 @@
 							Play chart for: <input type = "time" name = "stopTime">  <input style="visibility:hidden" id = "fileElem" type = "file" name = "fileElem" accept = "image/*">
 																					<label style = "margin-left:250px" id = "defaultImageSelector" for="fileElem">Select image</label>
 							<br><br><br>
-							<input type = "submit" name = "submit" value = "save">
+							<input type = "button" id = "saveButton"  value = "save" onclick = "settings(this.form);">
 							<input type = "submit" name = "cancel" value = "cancel">
 							
 						</form>						
