@@ -139,6 +139,7 @@
 }
 #playList{
 	background-color:white;
+	color:black;
 	height:250px;
 	overflow:auto;
 	overflow-x:hidden;
