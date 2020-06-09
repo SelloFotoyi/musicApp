@@ -27,9 +27,37 @@ window.onload = function(){
 	var defaultArtist = "Unknown Artist";
 	var defaultAlbum = "Uknown Album";
 	
+	
+	//****************** Default image add **************
+	var defaultImage = document.getElementById("defaultImageSelector");
+	defaultImage.addEventListener("click", chooseImage());
+	
+	function chooseImage(){
+		const imageFile = this.files;
+		if(FileReader && imageFile && imageFile.length){
+				
+			var image_fr = new FileReader();
+				
+			image_fr.onload = function(){
+				document.getElementById("upperImage").src = image_fr.result;
+				document.getElementById("upperImage").style.height = "250px";
+				document.getElementById("upperImage").style.width = "300px";
+/*				document.getElementById("footerImage").src = image_fr.result;
+				document.getElementById("footerImage").style.height = "50px";
+				document.getElementById("footerImage").style.width = "50px";*/
+			}
+			
+				image_fr.readAsDataURL(imageFile[0]);
+			
+			
+		}
+	}
+	
 	//******************song add ***********************
 	const inputElem = document.getElementById("songAddInput");
 	inputElem.addEventListener("change",handleFiles,false);
+	
+
 	
 	var settingsForm = document.getElementById("settingsForm");
 	

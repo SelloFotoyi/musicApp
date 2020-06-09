@@ -32,7 +32,7 @@
 	border:1px solid white;
 	display:flex;
 	flex-direction:column;
-	background-color:pink;
+	background-color:grey;
 }
 #face{
 	flex-basis:300px;
@@ -45,7 +45,7 @@
 	justify-content:center;
 	align-items:center;
 }
-#chart_image{
+#upperImage{
 	width:300px;
 	height:250px; /*maybe 300px*/
 }
@@ -201,7 +201,7 @@
 
 #currentlyPlaying{
 	flex:0 0 50px;
-	background-color:pink;
+	background-color:grey;
 	display:flex;
 	justify-content:space-between;
 }
