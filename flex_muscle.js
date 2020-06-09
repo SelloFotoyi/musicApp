@@ -104,7 +104,8 @@ window.onload = function(){
 		for(let node of trackDetailNodes){
 			node.style.flexBasis = "300px";
 			node.style.alignSelf = "center";
-			node.style.textAlign = "center";
+			if (node != trackDetailNodes.secondChild)
+				node.style.textAlign = "center";
 		}
 		trackDetailNodes[0].style.flexBasis = "25px";
 			
@@ -189,6 +190,7 @@ window.onload = function(){
 		if (isShuffle){
 			tracksIndex = Math.floor(Math.random()*playListArr.length);
 			uploadSong();
+			highLight();
 			return;
 		}
 		
@@ -208,7 +210,7 @@ window.onload = function(){
 		//	trackSrc.src = trackList[tracksIndex];
 			uploadSong();
 			
-		//	highLight();
+			highLight();
 			
 			currentTrack++;
 			
@@ -231,6 +233,7 @@ window.onload = function(){
 		if (isShuffle){
 			tracksIndex = Math.floor(Math.random()*playListArr.length);
 			uploadSong();
+			highLight();
 			return;
 		}
 		
@@ -245,7 +248,7 @@ window.onload = function(){
 			currentTrack--;
 	//		trackSrc.src = trackList[tracksIndex];
 			uploadSong();
-	//		highLight();
+			highLight();
 			
 		}
 		else {
@@ -253,7 +256,7 @@ window.onload = function(){
 			currentTrack = tracksIndex+1;;
 	//		trackSrc.src = trackList[tracksIndex];
 			uploadSong();
-	//		highLight();
+			highLight();
 		}
 		
 		
@@ -266,7 +269,7 @@ window.onload = function(){
 	//	uploadSong();
 	//	trackSrc.pause();
 	//	trackSrc.currentTime = 0.0;
-	//	highLight();
+		highLight();
 		trackSrc.src = "";
 		
 		
@@ -315,24 +318,30 @@ window.onload = function(){
 		
 	}
 	//event functions: end
-/*	function highLight(){
-	 	for(let row of playlistRow){
-			row.style.border="0px";
-			row.style.fontWeight="normal";
+	function highLight(){
+		document.getElementById("chartHeading").innerHTML = "in here";
+		
+		let rows = playList.childNodes;
+		
+	 	for(let i = 3; i < rows.length; i++){
+			rows[i].style.border="0px";
+			rows[i].style.fontWeight="normal";
+			
 		}
 		
-		playlistRow[tracksIndex].style.border = "1px solid grey";
-		playlistRow[tracksIndex].style.fontWeight = "bold";
+		rows[tracksIndex+3].style.border = "1px dashed grey";
+		rows[tracksIndex+3].style.fontWeight = "bold";
+		
+		
 		
 
 	}
-*/	
+	
 	function playAll(){
 		tracksIndex = 0;
 		currentTrack = tracksIndex+1;
 		uploadSong();
-	//	highLight();
-	document.getElementById("currentTitle").innerHTML = tracksIndex;
+		highLight();
 	}
 	
 	
