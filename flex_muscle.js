@@ -123,15 +123,18 @@ window.onload = function(){
 		
 	//	player[3].style.backgroundColor = "red";
 	
-/*		for(let i = 3; i < player.length; i++){
+		for(let i = 3; i < player.length; i++){
 			if (i%2 == 0){
-				player[i].style.backgroundColor = "red";
+				player[i].style.backgroundColor = "LightGrey";
 			}
 			else if (i%2 != 0){
-				player[i].style.backgroundColor = "cyan";
+				player[i].style.backgroundColor = "white";
 			}
 			
-		} */
+			player[i].style.flexBasis = "300px";
+			player[i].style.padding = "3.5px"
+			
+		}
 	
 		
 	
