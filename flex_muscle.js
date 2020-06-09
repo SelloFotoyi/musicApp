@@ -36,20 +36,26 @@ window.onload = function(){
 	
 	function handleFiles(){
 	
-				
+		let songCount = 0;
 		const fileList = this.files;
 		additions = fileList.length;
 		
-		playListArr[songAddTracker] = fileList[0];
-		songAddTracker++;
-/*
+//		playListArr[songAddTracker] = fileList[0];
+//		songAddTracker++;
+
 		for(let i = 0; i < fileList.length; i++){
 			playListArr[songAddTracker+i] = fileList[i];
 			
 		}
-		songAddTracker+=fileList.length;*/
+		songAddTracker+=fileList.length;
 		
-		appendSong(fileList);
+		while(songCount < fileList.length){
+			appendSong(fileList, songCount);
+			songCount++;
+		}
+		
+		
+		
 		
 			
 	}
@@ -58,15 +64,14 @@ window.onload = function(){
 	
 	//*******************display playList *********************
 	
-	function appendSong(fileList){
+	function appendSong(fileList, songCount){
 		
 	//	document.getElementById("chartHeading").innerHTML = "in here";
-		
 
 		var trackNumber = document.createElement("div");
-		trackNumber.innerHTML = playListArr.length;
+		trackNumber.innerHTML = songCount+1;
 		var trackName = document.createElement("div");
-		trackName.innerHTML = fileList[0].name;
+		trackName.innerHTML = fileList[songCount].name;
 		var artistName = document.createElement("div");
 		artistName.style.textAlign = "center";
 		artistName.innerHTML = defaultArtist;
@@ -110,7 +115,21 @@ window.onload = function(){
 	
 		playList.appendChild(trackDetail);
 		
+		var player = playList.childNodes;
 		
+	
+		
+	//	player[3].style.backgroundColor = "red";
+	
+/*		for(let i = 3; i < player.length; i++){
+			if (i%2 == 0){
+				player[i].style.backgroundColor = "red";
+			}
+			else if (i%2 != 0){
+				player[i].style.backgroundColor = "cyan";
+			}
+			
+		} */
 	
 		
 	
@@ -232,7 +251,7 @@ window.onload = function(){
 	//		highLight();
 		}
 		
-		document.getElementById("currentTitle").innerHTML = tracksIndex;
+		
 	}
 	
 	function stop(){
@@ -243,9 +262,9 @@ window.onload = function(){
 	//	trackSrc.pause();
 	//	trackSrc.currentTime = 0.0;
 	//	highLight();
-	trackSrc.src = "";
+		trackSrc.src = "";
 		
-		document.getElementById("currentTitle").innerHTML = tracksIndex;
+		
 	}
 	
 	function loop(){
@@ -258,15 +277,13 @@ window.onload = function(){
 			loopOn.style.width = "30px"; 
 			loopOn.style.height = "30px";
 			loopMusic.replaceChild(loopOn,loopMusic.firstChild);
-			document.getElementById("chartHeading").innerHTML = "looping";
 		}
 		else if (isLoop == false){
 			var loopOff = document.createElement("img");
 			loopOff.src = "icons/loop_off_2.png";
 			loopOff.style.width = "30px"; 
 			loopOff.style.height = "30px";
-			loopMusic.replaceChild(loopOff,loopMusic.firstChild);
-			document.getElementById("chartHeading").innerHTML = "not looping";			
+			loopMusic.replaceChild(loopOff,loopMusic.firstChild);			
 		}
 			
 		
@@ -280,16 +297,14 @@ window.onload = function(){
 			shuffleOn.src = "icons/shuffle_on_2.png";
 			shuffleOn.style.width = "30px"; 
 			shuffleOn.style.height = "30px";
-			shuffleMusic.replaceChild(shuffleOn,shuffleMusic.firstChild);
-			document.getElementById("chartHeading").innerHTML = "shuffle on";			
+			shuffleMusic.replaceChild(shuffleOn,shuffleMusic.firstChild);			
 		}
 		else if (isShuffle == false){
 			var shuffleOff = document.createElement("img");
 			shuffleOff.src = "icons/shuffle_off_2.png";
 			shuffleOff.style.width = "30px"; 
 			shuffleOff.style.height = "30px";
-			shuffleMusic.replaceChild(shuffleOff,shuffleMusic.firstChild);
-			document.getElementById("chartHeading").innerHTML = "shuffle off";			
+			shuffleMusic.replaceChild(shuffleOff,shuffleMusic.firstChild);			
 		}
 	
 		
@@ -338,14 +353,14 @@ window.onload = function(){
 		document.getElementById("currentlyPlaying").style.backgroundColor
 			= settingsForm.elements["theme1"].value;
 		
-		
-/* 		for(let i = 0; i < playlistRow.length; i++){
+		let playLister = playList.childNodes;
+ 		for(let i = 3; i <playLister.length ; i++){
 			if (i %2 == 0){
-				playlistRow[i].style.backgroundColor =
+				playLister[i].style.backgroundColor =
 				settingsForm.elements["theme2"].value;
 			}
 				
-		} */
+		} 
 			
 	}
 	
