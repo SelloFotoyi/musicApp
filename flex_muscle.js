@@ -332,9 +332,17 @@ window.onload = function(){
 		rows[tracksIndex+3].style.border = "1px dashed grey";
 		rows[tracksIndex+3].style.fontWeight = "bold";
 		
-		
+		updateCurrent();
 		
 
+	}
+	
+	function updateCurrent(){
+		let currentTrackName = playListArr[tracksIndex].name;
+		document.getElementById("upperArtistName").innerHTML = defaultArtist;
+		document.getElementById("lowerArtistName").innerHTML = defaultArtist;
+		document.getElementById("upperTrackTitle").innerHTML = currentTrackName.substring(0,(currentTrackName.length-4));
+		document.getElementById("lowerTrackTitle").innerHTML = currentTrackName.substring(0,(currentTrackName.length-4));
 	}
 	
 	function playAll(){
