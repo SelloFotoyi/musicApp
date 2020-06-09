@@ -42,17 +42,19 @@ window.onload = function(){
 		
 //		playListArr[songAddTracker] = fileList[0];
 //		songAddTracker++;
-
+		let initLength = playListArr.length;
+		
 		for(let i = 0; i < fileList.length; i++){
 			playListArr[songAddTracker+i] = fileList[i];
 			
 		}
-		songAddTracker+=fileList.length;
 		
-		while(songCount < fileList.length){
-			appendSong(fileList, songCount);
-			songCount++;
+		
+		for (let i = songAddTracker; i < (initLength+fileList.length); i++){
+			appendSong(i);
 		}
+		
+		songAddTracker+=fileList.length;
 		
 		
 		
@@ -64,14 +66,14 @@ window.onload = function(){
 	
 	//*******************display playList *********************
 	
-	function appendSong(fileList, songCount){
+	function appendSong(i){
 		
 	//	document.getElementById("chartHeading").innerHTML = "in here";
 
 		var trackNumber = document.createElement("div");
-		trackNumber.innerHTML = songCount+1;
+		trackNumber.innerHTML = i+1;
 		var trackName = document.createElement("div");
-		trackName.innerHTML = fileList[songCount].name;
+		trackName.innerHTML = playListArr[i].name;
 		var artistName = document.createElement("div");
 		artistName.style.textAlign = "center";
 		artistName.innerHTML = defaultArtist;
