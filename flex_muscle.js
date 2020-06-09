@@ -30,7 +30,7 @@ window.onload = function(){
 	
 	//****************** Default image add **************
 	var defaultImage = document.getElementById("defaultImageSelector");
-	defaultImage.addEventListener("click", chooseImage());
+	defaultImage.addEventListener("click", chooseImage,false);
 	
 	function chooseImage(){
 		const imageFile = this.files;
@@ -365,11 +365,13 @@ window.onload = function(){
 	 	for(let i = 3; i < rows.length; i++){
 			rows[i].style.border="0px";
 			rows[i].style.fontWeight="normal";
+			rows[i].style.fontStyle = "normal";
 			
 		}
 		
-		rows[tracksIndex+3].style.border = "1px dashed grey";
+		rows[tracksIndex+3].style.border = "3.5px dashed grey";
 		rows[tracksIndex+3].style.fontWeight = "bold";
+		rows[tracksIndex+3].style.fontStyle = "italic";
 		
 		updateCurrent();
 		
