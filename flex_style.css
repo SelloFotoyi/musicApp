@@ -10,7 +10,7 @@
 	display:flex;
 }
 #sideMenu{
-	flex-basis:30px;
+	flex-basis:0px;
 	background-color:LightGrey;
 	display:flex;
 	flex-direction:column;
