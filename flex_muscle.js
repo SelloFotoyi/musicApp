@@ -162,7 +162,11 @@ window.onload = function(){
 	//event functions
 	function next(){
 		
-		
+		if (isShuffle){
+			tracksIndex = Math.floor(Math.random()*playListArr.length);
+			uploadSong();
+			return;
+		}
 		
 		if(tracksIndex >= playListArr.length-1){
 			stop();
@@ -199,6 +203,13 @@ window.onload = function(){
 	}
 	
 	function previous(){
+		
+		if (isShuffle){
+			tracksIndex = Math.floor(Math.random()*playListArr.length);
+			uploadSong();
+			return;
+		}
+		
 		if(currentTrack == 1){
 			stop();
 			return;
@@ -262,6 +273,24 @@ window.onload = function(){
 	}
 	
 	function shuffle(){
+		isShuffle = !isShuffle;
+		
+		if (isShuffle == true){
+			var shuffleOn = document.createElement("img");
+			shuffleOn.src = "icons/shuffle_on_2.png";
+			shuffleOn.style.width = "30px"; 
+			shuffleOn.style.height = "30px";
+			shuffleMusic.replaceChild(shuffleOn,shuffleMusic.firstChild);
+			document.getElementById("chartHeading").innerHTML = "shuffle on";			
+		}
+		else if (isShuffle == false){
+			var shuffleOff = document.createElement("img");
+			shuffleOff.src = "icons/shuffle_off_2.png";
+			shuffleOff.style.width = "30px"; 
+			shuffleOff.style.height = "30px";
+			shuffleMusic.replaceChild(shuffleOff,shuffleMusic.firstChild);
+			document.getElementById("chartHeading").innerHTML = "shuffle off";			
+		}
 	
 		
 	}
