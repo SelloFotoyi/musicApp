@@ -31,7 +31,7 @@ window.onload = function(){
 	const inputElem = document.getElementById("songAddInput");
 	inputElem.addEventListener("change",handleFiles,false);
 	
-	
+	var settingsForm = document.getElementById("settingsForm");
 	
 	
 	function handleFiles(){
@@ -76,7 +76,7 @@ window.onload = function(){
 		var trackName = document.createElement("div");
 		let trkNm = playListArr[i].name;
 		if(trkNm.length > 43)
-			trackName.innerHTML = trkNm.substring(0,25) + "...";
+			trackName.innerHTML = trkNm.substring(0,35) + "...";
 		else 
 			trackName.innerHTML = trkNm.substring(0,trkNm.length-4);
 		
@@ -118,12 +118,14 @@ window.onload = function(){
 		}
 		trackDetailNodes[0].style.flexBasis = "25px";
 			
-		if(playListArr.length%2 == 0){
-			trackDetail.style.backgroundColor = "LightGrey";
-		}
-		else if (playListArr.length %2 != 0){
-			trackDetail.style.backgroundColor = "white";
-		}
+/*		if(playListArr.length%2 == 0){
+			trackDetail.style.backgroundColor = 
+				settingsForm.elements["theme2"].value;
+		}*/
+		themeSettings();
+	//	else if (playListArr.length %2 != 0){
+	//		trackDetail.style.backgroundColor = "white";
+	//	}
 	
 		playList.appendChild(trackDetail);
 		
@@ -153,7 +155,7 @@ window.onload = function(){
 	
 
 	
-	var settingsForm = document.getElementById("settingsForm");
+	
 	
 	 //for user
 	var trackSrc = document.getElementById("currentAudio");
@@ -328,7 +330,7 @@ window.onload = function(){
 	}
 	//event functions: end
 	function highLight(){
-		document.getElementById("chartHeading").innerHTML = "in here";
+		
 		
 		let rows = playList.childNodes;
 		
