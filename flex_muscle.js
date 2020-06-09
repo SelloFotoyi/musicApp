@@ -72,16 +72,27 @@ window.onload = function(){
 
 		var trackNumber = document.createElement("div");
 		trackNumber.innerHTML = i+1;
+		
 		var trackName = document.createElement("div");
-		trackName.innerHTML = playListArr[i].name;
+		let trkNm = playListArr[i].name;
+		if(trkNm.length > 43)
+			trackName.innerHTML = trkNm.substring(0,25) + "...";
+		else 
+			trackName.innerHTML = trkNm.substring(0,trkNm.length-4);
+		
+	//	trackName.innerHTML = playListArr[i].name;
+		
 		var artistName = document.createElement("div");
 		artistName.style.textAlign = "center";
 		artistName.innerHTML = defaultArtist;
 		artistName.style.color = "black";
+		
 		var albumName = document.createElement("div");
 		albumName.innerHTML = defaultAlbum;
+		albumName.style.textAlign = "center";
 		var deleter = document.createElement("div");
 		deleter.innerHTML = "delete";
+		deleter.style.textAlign = "center";
 	
 		var trackDetail = document.createElement("div");
 		trackDetail.style.height = "40px";
@@ -104,8 +115,6 @@ window.onload = function(){
 		for(let node of trackDetailNodes){
 			node.style.flexBasis = "300px";
 			node.style.alignSelf = "center";
-			if (node != trackDetailNodes.secondChild)
-				node.style.textAlign = "center";
 		}
 		trackDetailNodes[0].style.flexBasis = "25px";
 			
@@ -342,7 +351,11 @@ window.onload = function(){
 		document.getElementById("upperArtistName").innerHTML = defaultArtist;
 		document.getElementById("lowerArtistName").innerHTML = defaultArtist;
 		document.getElementById("upperTrackTitle").innerHTML = currentTrackName.substring(0,(currentTrackName.length-4));
-		document.getElementById("lowerTrackTitle").innerHTML = currentTrackName.substring(0,(currentTrackName.length-4));
+		
+		if(currentTrackName.length > 43)
+			document.getElementById("lowerTrackTitle").innerHTML = currentTrackName.substring(0,25) + "...";
+		else 
+			document.getElementById("lowerTrackTitle").innerHTML = currentTrackName.substring(0,(currentTrackName.length-4));
 	}
 	
 	function playAll(){
