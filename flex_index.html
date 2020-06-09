@@ -2,63 +2,56 @@
 <html lang="en-US">
 <head>
     <title>Music Chart</title>
-	<meta charset="UTF-8">
-	<link rel = "stylesheet" type = "text/css" href = "flex_style.css">
-	<script src = "flex_muscle.js"></script>
+    <meta charset="UTF-8">
+    <link rel = "stylesheet" type = "text/css" href = "flex_style.css">
+    <script src = "flex_muscle.js"></script>
 </head>
 <body>
-	<div id = "charter">
-		<div id = "upperSection">
-			<div id = "sideMenu">
-				<div class = "sideMenuIcon"><img src = "icons/close.png" title = "close menu"></div>
-				<div class = "sideMenuIcon"><img src = "icons/edit2.png" title = "chart title"></div>
-				<div class = "sideMenuIcon"><img src = "icons/theme3.png" title = "theme"></div>
-				<div class = "sideMenuIcon"><img src = "icons/limit3.png" title = "limit number of songs"></div>
-				<div class = "sideMenuIcon"><img src = "icons/order2.png" title = "playing order"></div>
-			</div>
-			
-			<div id = "charterTracks">
-				<div id = "face">
-					<div id = "faceImage">
-						<img id = "chart_image" src = "chart_img.jpg">
-					</div>
-					
-					<div id = "chartInfo">
-						<div><h1 id = "chartHeading">Chart Name (# of songs added)</h1></div>
-						<div>Current Artist name</div>
-						<div>Track title</div>
-<!--						<div id = "searchBar">
-							
-							<input type = "search" placeholder = "find a song">
-							
-						
-						</div>-->
-						<div id = "songAdder">
-							<input style = "visibility:hidden" id = "songAddInput" type = "file" name = "songAddInput" multiple>
-						</div>
-						<div id = "playAddSongs">
-							<div id = "playAddMenu">
-								<!--<div id = "searchSong"><img src = "icons/search2.png" title = "find song"></div>-->
-								<div id = "playAll"><img src = "icons/play5.png" title = "play all"></div>
-								<div id = "addSongs">
-									<label id = "addSongSelector" for="songAddInput">
-										<img src = "icons/add_solid.png" title = "add song">
-									</label>
-								</div>
-								<div id = "settingsIcon"><img src = "icons/setting2.png" title = "settings"> </div>
-							</div>
-						</div>
-						
-					</div>
-					
-					<div id = "mainSettings">
-						<form id = "settingsForm">
-							<label>Chart name</label><span class = "spacing"><label style="margin-left:170px">Theme</label></span> <br>
-							<input type = "text" id = "chartName" name = "chartName"><span class = "spacing"> <input id = "theme1" style="margin-left:50px" type = "color" name = "theme"> + 
-								<input type = "color" name = "theme2" id = "theme2"><br>
+<div id = "charter">
+    <div id = "upperSection">
+        <div id = "sideMenu">
+            <div class = "sideMenuIcon"><img src = "icons/close.png" title = "close menu"></div>
+            <div class = "sideMenuIcon"><img src = "icons/edit2.png" title = "chart title"></div>
+            <div class = "sideMenuIcon"><img src = "icons/theme3.png" title = "theme"></div>
+            <div class = "sideMenuIcon"><img src = "icons/limit3.png" title = "limit number of songs"></div>
+            <div class = "sideMenuIcon"><img src = "icons/order2.png" title = "playing order"></div>
+        </div>
+
+        <div id = "charterTracks">
+            <div id = "face">
+                <div id = "faceImage">
+                    <img id = "chart_image" src = "chart_img.jpg">
+                </div>
+
+                <div id = "chartInfo">
+                    <div><h1 id = "chartHeading">Chart Name (# of songs added)</h1></div>
+                    <div>Current Artist name</div>
+                    <div>Track title</div>
+                    <div id = "songAdder">
+                        <input style = "visibility:hidden" id = "songAddInput" type = "file" name = "songAddInput" multiple>
+                    </div>
+                    <div id = "playAddSongs">
+                        <div id = "playAddMenu">
+                            <div id = "playAll"><img src = "icons/play5.png" title = "play all"></div>
+                            <div id = "addSongs">
+                                <label id = "addSongSelector" for="songAddInput">
+                                    <img src = "icons/add_solid.png" title = "add song">
+                                </label>
+                            </div>
+                            <div id = "settingsIcon"><img src = "icons/setting2.png" title = "settings"> </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id = "mainSettings">
+                    <form id = "settingsForm">
+                        <label>Chart name</label><span class = "spacing"><label style="margin-left:170px">Theme</label></span> <br>
+                        <input type = "text" id = "chartName" name = "chartName"><span class = "spacing"> <input id = "theme1" style="margin-left:50px" type = "color" name = "theme"> +
+                        <input type = "color" name = "theme2" id = "theme2"></span><br>
 							<br>
-		
-								
+
+
 							<label>Font</label>  <span class = "spacing"><label style="margin-left:190px">Order of playing songs</label></span> <br>
 							<input type = "text" list = "fontList">
 							<datalist id = "fontList">
@@ -67,15 +60,15 @@
 								<option value = "font 2">
 								<option value = "font 3">
 							</datalist>
-							
+
 							<span class = "spacing"><input style="margin-left:40px" type = "text" list = "playingOrder"></span>
 							<datalist id = "playingOrder">
 								<option value = "Ascending">
 								<option value = "Descending">
 								<option value = "Shuffled">
 							</datalist>
-							<br>							
-						
+							<br>
+
 
 							<br>
 							<input type = "checkbox" name = "autostop">Autostop chart  <input style = "margin-left:115px" type = "checkbox" name = "defaultImg">Set default chart image <br>
@@ -84,131 +77,131 @@
 							<br><br><br>
 							<input type = "button" id = "saveButton"  value = "Save">
 							<input type = "button" id = "cancelButton" value = "Cancel">
-							
-						</form>						
-					
-					</div>	
-				</div>	
-				
-				<div id = "playList">
-<!--					<div class = "trackDetail">			
-						<div class = "listTrackNumber"></div>
-						<div class = "listTrackName"></div>
-						<div class = "listArtistName"></div>
-						<div class = "listAlbum"></div>
-						<div class = "listTrackDelete"></div>				
-					</div>	
-					
- 					<div class = "trackDetail">			
-						<div class = "listTrackNumber"></div>
-						<div class = "mark"></div>
-						<div class = "listTrackName"></div>
-						<div class = "listArtistName"></div>
-						<div class = "listDuration"></div>
-						<div></div>			
-					</div>
-					
-					<div class = "trackDetail">
-						<div class = "listTrackNumber">3</div>
-						<div class = "mark"></div>
-						<div class = "listTrackName">trackName</div>
-						<div class = "listArtistName">ArtistName</div>
-						<div>Duration</div>
-						<div>More info</div>			
-					</div>	
-				
-					<div class = "trackDetail">		
-						<div class = "listTrackNumber">4</div>
-						<div class = "mark"></div>
-						<div class = "listTrackName">trackName</div>
-						<div class = "listArtistName">ArtistName</div>
-						<div>Duration</div>
-						<div>More info</div>			
-					</div>
-						
-					<div class = "trackDetail">
-						<div class = "listTrackNumber">5</div>
-						<div class = "mark"></div>
-						<div class = "listTrackName">trackName</div>
-						<div class = "listArtistName">ArtistName</div>
-						<div class = "listDuration">Duration</div>
-						<div>More info</div>		
-					</div>
-				
-					<div class = "trackDetail">		
-						<div class = "listTrackNumber">6</div>
-						<div class = "mark"></div>
-						<div class = "listTrackName">trackName</div>
-						<div class = "listArtistName">ArtistName</div>
-						<div class = "listDuration">Duration</div>
-						<div>More info</div>		
-					</div>		
-				
-					<div class = "trackDetail">			
-						<div class = "listTrackNumber">7</div>
-						<div class = "mark"></div>
-						<div class = "listTrackName">trackName</div>
-						<div class = "listArtistName">ArtistName</div>
-						<div class = "listDuration">Duration</div>
-						<div>More info</div>			
-					</div>	
-						
-					<div class = "trackDetail">
-						<div class = "listTrackNumber">8</div>
-						<div class = "mark"></div>
-						<div class = "listTrackName">trackName</div>
-						<div class = "listArtistName">ArtistName</div>
-						<div class = "listDuration">Duration</div>
-						<div>More info</div>
-					</div>
-				
-					<div class = "trackDetail">
-						<div class = "listTrackNumber">9</div>
-						<div class = "mark"></div>
-						<div class = "listTrackName">trackName</div>
-						<div class = "listArtistName">ArtistName</div>
-						<div class = "listDuration">Duration</div>
-						<div>More info</div>
-					</div>
-				
-					<div class = "trackDetail">			
-						<div class = "listTrackNumber">10</div>
-						<div class = "mark"></div>
-						<div class = "listTrackName">trackName</div>
-						<div class = "listArtistName">ArtistName</div>
-						<div class = "listDuration">Duration</div>
-						<div>More info</div>
-					</div>	 --> 						
-						
-				</div>
-			</div>
-		
-		</div>
-		<div id = "currentlyPlaying">
-			<div id = "currentSongDetails">
-				<div id = "currentSongImage">
-					<img id = "footerImage" src = "chart_img.jpg">
-				</div>
-					
-				<div id = "songTitleAndArtist">
-					<div>Song title</div>
-					<div>Artist Name</div>
-				</div>
-			</div>
-			
-			<audio id = "currentAudio" controls autoplay height = "20px" width = "20px">
-				<source id = "trackSource" src = "Favorite Drive.mp3"
-					type = "audio/mp3">
-					audio not supported by your browser
-			</audio>
-			<div id = "trackOptions">
-				<div id = "prev" class = "trackOption"><img src = "icons/prev.png"></div>
-				<div id = "stop" class = "trackOption"><img src = "icons/stop.png"></div>
-				<div id = "next" class = "trackOption"><img src = "icons/next.png"></div>
-				<div id = "loop" class = "trackOption"><img src = "icons/loop_transparent.png"></div>
-				<div id = "shufl" class = "trackOption"><img src = "icons/shuffle_solid.png"></div>
-			</div>
-		</div>
-	</div>
+
+                    </form>
+
+                </div>
+            </div>
+
+            <div id = "playList">
+                <!--					<div class = "trackDetail">
+                                        <div class = "listTrackNumber"></div>
+                                        <div class = "listTrackName"></div>
+                                        <div class = "listArtistName"></div>
+                                        <div class = "listAlbum"></div>
+                                        <div class = "listTrackDelete"></div>
+                                    </div>
+
+                                     <div class = "trackDetail">
+                                        <div class = "listTrackNumber"></div>
+                                        <div class = "mark"></div>
+                                        <div class = "listTrackName"></div>
+                                        <div class = "listArtistName"></div>
+                                        <div class = "listDuration"></div>
+                                        <div></div>
+                                    </div>
+
+                                    <div class = "trackDetail">
+                                        <div class = "listTrackNumber">3</div>
+                                        <div class = "mark"></div>
+                                        <div class = "listTrackName">trackName</div>
+                                        <div class = "listArtistName">ArtistName</div>
+                                        <div>Duration</div>
+                                        <div>More info</div>
+                                    </div>
+
+                                    <div class = "trackDetail">
+                                        <div class = "listTrackNumber">4</div>
+                                        <div class = "mark"></div>
+                                        <div class = "listTrackName">trackName</div>
+                                        <div class = "listArtistName">ArtistName</div>
+                                        <div>Duration</div>
+                                        <div>More info</div>
+                                    </div>
+
+                                    <div class = "trackDetail">
+                                        <div class = "listTrackNumber">5</div>
+                                        <div class = "mark"></div>
+                                        <div class = "listTrackName">trackName</div>
+                                        <div class = "listArtistName">ArtistName</div>
+                                        <div class = "listDuration">Duration</div>
+                                        <div>More info</div>
+                                    </div>
+
+                                    <div class = "trackDetail">
+                                        <div class = "listTrackNumber">6</div>
+                                        <div class = "mark"></div>
+                                        <div class = "listTrackName">trackName</div>
+                                        <div class = "listArtistName">ArtistName</div>
+                                        <div class = "listDuration">Duration</div>
+                                        <div>More info</div>
+                                    </div>
+
+                                    <div class = "trackDetail">
+                                        <div class = "listTrackNumber">7</div>
+                                        <div class = "mark"></div>
+                                        <div class = "listTrackName">trackName</div>
+                                        <div class = "listArtistName">ArtistName</div>
+                                        <div class = "listDuration">Duration</div>
+                                        <div>More info</div>
+                                    </div>
+
+                                    <div class = "trackDetail">
+                                        <div class = "listTrackNumber">8</div>
+                                        <div class = "mark"></div>
+                                        <div class = "listTrackName">trackName</div>
+                                        <div class = "listArtistName">ArtistName</div>
+                                        <div class = "listDuration">Duration</div>
+                                        <div>More info</div>
+                                    </div>
+
+                                    <div class = "trackDetail">
+                                        <div class = "listTrackNumber">9</div>
+                                        <div class = "mark"></div>
+                                        <div class = "listTrackName">trackName</div>
+                                        <div class = "listArtistName">ArtistName</div>
+                                        <div class = "listDuration">Duration</div>
+                                        <div>More info</div>
+                                    </div>
+
+                                    <div class = "trackDetail">
+                                        <div class = "listTrackNumber">10</div>
+                                        <div class = "mark"></div>
+                                        <div class = "listTrackName">trackName</div>
+                                        <div class = "listArtistName">ArtistName</div>
+                                        <div class = "listDuration">Duration</div>
+                                        <div>More info</div>
+                                    </div>	 -->
+
+            </div>
+        </div>
+
+    </div>
+    <div id = "currentlyPlaying">
+        <div id = "currentSongDetails">
+            <div id = "currentSongImage">
+                <img id = "footerImage" src = "chart_img.jpg">
+            </div>
+
+            <div id = "songTitleAndArtist">
+                <div>Song title</div>
+                <div>Artist Name</div>
+            </div>
+        </div>
+
+        <audio id = "currentAudio" controls autoplay>
+            <source id = "trackSource" src = "Favorite Drive.mp3"
+                    type = "audio/mp3">
+            audio not supported by your browser
+        </audio>
+        <div id = "trackOptions">
+            <div id = "prev" class = "trackOption"><img src = "icons/prev.png"></div>
+            <div id = "stop" class = "trackOption"><img src = "icons/stop.png"></div>
+            <div id = "next" class = "trackOption"><img src = "icons/next.png"></div>
+            <div id = "loop" class = "trackOption"><img src = "icons/loop_transparent.png"></div>
+            <div id = "shufl" class = "trackOption"><img src = "icons/shuffle_solid.png"></div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
