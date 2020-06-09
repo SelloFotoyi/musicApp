@@ -2,6 +2,7 @@ window.onload = function(){
 	
 
  	
+	
 	var additions = 0;
 	
 	//playlist variables
@@ -10,16 +11,17 @@ window.onload = function(){
 	
 	
 
-	
+/*	
 	var listTrackNumbers = document.getElementsByClassName("listTrackNumber");
  	var listTrackNames = document.getElementsByClassName("listTrackName");
 	var listArtistNames = document.getElementsByClassName("listArtistName");
 	var listAlbums = document.getElementsByClassName("listAlbum"); 
 	var songDeleters = document.getElementsByClassName("listTrackDelete");
-	var songAddTracker = 0;
+	
 	var playlistRow = document.getElementsByClassName("trackDetail");
+	*/
 	
-	
+	var songAddTracker = 0;
 	var tracksIndex = 0;	// @start of array
 	var currentTrack = tracksIndex+1;
 	var defaultArtist = "Unknown Artist";
@@ -58,7 +60,8 @@ window.onload = function(){
 	
 	function appendSong(fileList){
 		
-		document.getElementById("chartHeading").innerHTML = "in here";
+	//	document.getElementById("chartHeading").innerHTML = "in here";
+		
 
 		var trackNumber = document.createElement("div");
 		trackNumber.innerHTML = playListArr.length;
@@ -106,13 +109,14 @@ window.onload = function(){
 		}
 	
 		playList.appendChild(trackDetail);
-		var playListNodes = playList.childNodes;
-		document.getElementById("chartHeading").innerHTML = playList.length;
+		
+		
+	
 		
 	
 	}
 	
-
+	
 
 	
 	var settingsForm = document.getElementById("settingsForm");
@@ -122,7 +126,7 @@ window.onload = function(){
 	
 	//highlight currently playing track on playlist
 	
-	playlistRow[tracksIndex].style.fontWeight = "bold";
+	//playlistRow[tracksIndex].style.fontWeight = "bold";
 	
 	
 	//play functionality
@@ -132,6 +136,7 @@ window.onload = function(){
 	var loopMusic = document.getElementById("loop");
 	var shuffleMusic = document.getElementById("shufl");
 	var isLoop = true;
+	var isShuffle = false;
 	var playAllSongs = document.getElementById("playAll");
 	
 
@@ -149,44 +154,47 @@ window.onload = function(){
 		.addEventListener("click",settings);
 	document.getElementById("cancelButton")
 		.addEventListener("click",closeSettings);
-/* 	document.getElementById("settingsIcon")
-		.addEventListener("click", checker);
+ 	document.getElementById("settingsIcon")
+		.addEventListener("click", openSettings);
 	
-	function checker(){
-		document.getElementById("chartHeading").innerHTML = "in here";
-	} */
+
 	
 	//event functions
 	function next(){
-		if(currentTrack > listTrackNumbers.length){
+		
+		
+		
+		if(tracksIndex >= playListArr.length-1){
 			stop();
 			if(!isLoop){
+				stop();
 				return;
 			}
-			
+			uploadSong();
+			return;
 		}
 		//add outOfBound check later
-		if(tracksIndex <listTrackNumbers.length-1){
-			
+		if(tracksIndex < playListArr.length-1){
+
 			tracksIndex++;
 		//	trackSrc.src = trackList[tracksIndex];
 			uploadSong();
 			
-			highLight();
+		//	highLight();
 			
 			currentTrack++;
 			
 		}
-		else {
+/* 		else {
 			tracksIndex = 0;//(listTrackNumbers.size-1);
 		//	trackSrc.src = trackList[tracksIndex];
 			uploadSong();
-			highLight();
+		//	highLight();
 			
-		}
+		} */
 		
 		
-		
+		document.getElementById("currentTitle").innerHTML = tracksIndex;
 		
 	}
 	
@@ -202,7 +210,7 @@ window.onload = function(){
 			currentTrack--;
 	//		trackSrc.src = trackList[tracksIndex];
 			uploadSong();
-			highLight();
+	//		highLight();
 			
 		}
 		else {
@@ -210,25 +218,46 @@ window.onload = function(){
 			currentTrack = tracksIndex+1;;
 	//		trackSrc.src = trackList[tracksIndex];
 			uploadSong();
-			highLight();
+	//		highLight();
 		}
 		
-		
+		document.getElementById("currentTitle").innerHTML = tracksIndex;
 	}
 	
 	function stop(){
 		tracksIndex = 0;
 		currentTrack = tracksIndex+1;
-	//	trackSrc.src = trackList[tracksIndex];
-		uploadSong();
-		trackSrc.pause();
-		highLight();
+	
+	//	uploadSong();
+	//	trackSrc.pause();
+	//	trackSrc.currentTime = 0.0;
+	//	highLight();
+	trackSrc.src = "";
 		
-		
+		document.getElementById("currentTitle").innerHTML = tracksIndex;
 	}
 	
 	function loop(){
 		isLoop = !isLoop;
+		
+		if(isLoop == true)
+		{
+			var loopOn = document.createElement("img");
+			loopOn.src = "icons/loop_on_2.png";
+			loopOn.style.width = "30px"; 
+			loopOn.style.height = "30px";
+			loopMusic.replaceChild(loopOn,loopMusic.firstChild);
+			document.getElementById("chartHeading").innerHTML = "looping";
+		}
+		else if (isLoop == false){
+			var loopOff = document.createElement("img");
+			loopOff.src = "icons/loop_off_2.png";
+			loopOff.style.width = "30px"; 
+			loopOff.style.height = "30px";
+			loopMusic.replaceChild(loopOff,loopMusic.firstChild);
+			document.getElementById("chartHeading").innerHTML = "not looping";			
+		}
+			
 		
 	}
 	
@@ -237,7 +266,7 @@ window.onload = function(){
 		
 	}
 	//event functions: end
-	function highLight(){
+/*	function highLight(){
 	 	for(let row of playlistRow){
 			row.style.border="0px";
 			row.style.fontWeight="normal";
@@ -248,17 +277,17 @@ window.onload = function(){
 		
 
 	}
-	
+*/	
 	function playAll(){
 		tracksIndex = 0;
 		currentTrack = tracksIndex+1;
 		uploadSong();
-		highLight();
+	//	highLight();
+	document.getElementById("currentTitle").innerHTML = tracksIndex;
 	}
 	
 	
 	function openSettings(){
-		document.getElementById("chartHeading").innerHTML = "in here";
 		document.getElementById("mainSettings")
 		 .style.visibility = "visible";
 	}
@@ -281,13 +310,13 @@ window.onload = function(){
 			= settingsForm.elements["theme1"].value;
 		
 		
-		for(let i = 0; i < playlistRow.length; i++){
+/* 		for(let i = 0; i < playlistRow.length; i++){
 			if (i %2 == 0){
 				playlistRow[i].style.backgroundColor =
 				settingsForm.elements["theme2"].value;
 			}
 				
-		}
+		} */
 			
 	}
 	
@@ -305,7 +334,8 @@ window.onload = function(){
 				trackSrc.src = fr.result;
 			}
 			
-			fr.readAsDataURL(playListArr[tracksIndex]);
+				fr.readAsDataURL(playListArr[tracksIndex]);
+			
 			
 		}		
 	}
