@@ -82,11 +82,7 @@ window.onload = function(){
 			appendSong(i);
 		}
 		
-		songAddTracker+=fileList.length;
-		
-		
-		
-		
+		songAddTracker+=fileList.length;	
 			
 	}
 	//*******************end of song add***********************
@@ -150,12 +146,13 @@ window.onload = function(){
 			trackDetail.style.backgroundColor = 
 				settingsForm.elements["theme2"].value;
 		}*/
-		themeSettings();
+		
 	//	else if (playListArr.length %2 != 0){
 	//		trackDetail.style.backgroundColor = "white";
 	//	}
 	
 		playList.appendChild(trackDetail);
+		themeSettings();
 		
 		var player = playList.childNodes;
 		
@@ -164,24 +161,34 @@ window.onload = function(){
 	//	player[3].style.backgroundColor = "red";
 	
 		for(let i = 3; i < player.length; i++){
-			if (i%2 == 0){
-				player[i].style.backgroundColor = "LightGrey";
-			}
-			else if (i%2 != 0){
-				player[i].style.backgroundColor = "white";
-			}
 			
 			player[i].style.flexBasis = "300px";
 			player[i].style.padding = "3.5px"
 			
+			player[i].addEventListener("mouseover",function(){
+				player[i].style.cursor = "pointer";
+				player[i].style.fontWeight = "bold";
+				
+			});
+			player[i].addEventListener("mouseout", function(){
+				highLight();
+			});
+			
+			player[i].addEventListener("click", function(){
+				stop();
+				tracksIndex = i-3;
+				currentTrack = tracksIndex+1;
+				uploadSong();
+				highLight();
+			});
+			//player[i].addEventListener("dclick", playClicked);
+			
+			
+			
 		}
-	
-		
 	
 	}
 	
-	
-
 	
 	
 	
