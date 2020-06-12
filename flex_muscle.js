@@ -364,19 +364,18 @@ window.onload = function(){
 		rows[tracksIndex+3].style.fontStyle = "italic";
 		
 		updateCurrent();
-		
-		
-		
 
 	}
 	
 	function scrollToPlaying(){
+		if(tracksIndex < 3){
+			playList.scrollTo(0,0);
+		}
 		let playRect = playList.childNodes;
 		let playPos = playRect[tracksIndex].getBoundingClientRect();
-		if(tracksIndex < 3)
-			playList.scrollTop;
+
+			
 		playList.scrollTo(0,tracksIndex*playPos.height);
-		
 	}
 	
 	function updateCurrent(){
