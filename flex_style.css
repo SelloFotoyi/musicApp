@@ -143,6 +143,7 @@
 	height:250px;
 	overflow:auto;
 	overflow-x:hidden;
+	overflow-y:visible;
 	border:5px solid white;
 	display:flex;
 	flex-direction:column;

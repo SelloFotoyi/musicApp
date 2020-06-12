@@ -235,12 +235,12 @@ window.onload = function(){
 		
 		if (isShuffle){
 			tracksIndex = Math.floor(Math.random()*playListArr.length);
+			currentTrack = tracksIndex+1;
 			uploadSong();
 			highLight();
-			return;
 		}
 		
-		if(tracksIndex >= playListArr.length-1){
+		if((tracksIndex >= playListArr.length-1) && !(isShuffle)){
 			stop();
 			if(!isLoop){
 				stop();
@@ -250,10 +250,9 @@ window.onload = function(){
 			return;
 		}
 		//add outOfBound check later
-		if(tracksIndex < playListArr.length-1){
+		if((tracksIndex < playListArr.length-1)&& !(isShuffle)){
 
 			tracksIndex++;
-		//	trackSrc.src = trackList[tracksIndex];
 			uploadSong();
 			
 			highLight();
@@ -261,16 +260,7 @@ window.onload = function(){
 			currentTrack++;
 			
 		}
-/* 		else {
-			tracksIndex = 0;//(listTrackNumbers.size-1);
-		//	trackSrc.src = trackList[tracksIndex];
-			uploadSong();
-		//	highLight();
-			
-		} */
-		
-		
-		document.getElementById("currentTitle").innerHTML = tracksIndex;
+		scrollToPlaying();
 		
 	}
 	
@@ -278,33 +268,26 @@ window.onload = function(){
 		
 		if (isShuffle){
 			tracksIndex = Math.floor(Math.random()*playListArr.length);
+			currentTrack = tracksIndex+1;
 			uploadSong();
 			highLight();
-			return;
 		}
 		
-		if(currentTrack == 1){
+		if((currentTrack == 1)&& !(isShuffle)){
 			stop();
 			return;
 		}
 
 		//add outOfBound check later
-		if(tracksIndex >1){
+		if((tracksIndex =>1)&& !(isShuffle)){
 			tracksIndex--;
 			currentTrack--;
-	//		trackSrc.src = trackList[tracksIndex];
 			uploadSong();
 			highLight();
 			
 		}
-		else {
-			tracksIndex = 0;
-			currentTrack = tracksIndex+1;;
-	//		trackSrc.src = trackList[tracksIndex];
-			uploadSong();
-			highLight();
-		}
-		
+
+		scrollToPlaying();
 		
 	}
 	
@@ -382,7 +365,18 @@ window.onload = function(){
 		
 		updateCurrent();
 		
+		
+		
 
+	}
+	
+	function scrollToPlaying(){
+		let playRect = playList.childNodes;
+		let playPos = playRect[tracksIndex].getBoundingClientRect();
+		if(tracksIndex < 3)
+			playList.scrollTop;
+		playList.scrollTo(0,tracksIndex*playPos.height);
+		
 	}
 	
 	function updateCurrent(){
