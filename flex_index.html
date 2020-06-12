@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <link rel = "stylesheet" type = "text/css" href = "flex_style.css">
     <script src = "flex_muscle.js"></script>
+	<style></style><!-- to be replaced by the user when uploading own font-->
 </head>
 <body>
 <div id = "charter">
@@ -55,14 +56,8 @@
 						<input id = "theme1" type = "color" name = "theme" value = "#708090"> +
                         <input type = "color" name = "theme2" id = "theme2" value = "#d3d3d3">
 						<br><br>
-						<label>Font</label><br>  
-						<input type = "text" list = "fontList">
-						<datalist id = "fontList">
-							<option value = "font 1">
-							<option value = "font 2">
-							<option value = "font 2">
-							<option value = "font 3">
-						</datalist>
+						<label>Font (load .ttf or .otf file)</label><br>  
+						<input id = "fontInput" type = "file" name = "fontInput" accept = ".ttf,.otf">
 						<br><br>
 						<label>Order of playing songs</label><br>
 						<input type = "text" list = "playingOrder">

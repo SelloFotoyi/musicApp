@@ -28,6 +28,32 @@ window.onload = function(){
 	var defaultAlbum = "Uknown Album";
 	
 	
+	//***************** uplading font ******************
+	
+//	let userFont = document.getElementById("fontInput");
+//	userFont.addEventListener("change",chooseFont);
+	
+/*	function chooseFont(){
+		const chosen_font = this.files;
+		let userFontName = "userFont";
+		if(FileReader && chosen_font &&chosen_font.length){
+			let font_fr = new FileReader();
+			font_fr.onload = function(){
+				let newFont = document.createElement("style");
+				newFont.appendChild(document.createTextNode("\
+					@font-face{\
+						font-family: " + userFontName + ";\
+						src:url('" + font_fr.result + "') format('ttf');\
+					}\
+				));
+				document.head.replaceChild(newFont,head.lastChild);
+			}
+			
+			font_fr.readAsDataURL(chosen_font[0]);
+		}
+	}*/
+	
+	
 	//****************** Default image add **************
 	const defaultImage = document.getElementById("faceImageInput");
 	defaultImage.addEventListener("change", chooseImage,false);
@@ -68,8 +94,6 @@ window.onload = function(){
 		const fileList = this.files;
 		additions = fileList.length;
 		
-//		playListArr[songAddTracker] = fileList[0];
-//		songAddTracker++;
 		let initLength = playListArr.length;
 		
 		for(let i = 0; i < fileList.length; i++){
@@ -100,9 +124,9 @@ window.onload = function(){
 		var trackName = document.createElement("div");
 		let trkNm = playListArr[i].name;
 		if(trkNm.length > 60)
-			trackName.innerHTML = (i+1)+"\) "+ trkNm.substring(0,60)+"...";
+			trackName.innerHTML = (i+1)+") "+ trkNm.substring(0,60)+"...";
 		else
-			trackName.innerHTML = (i+1)+"\)  "+ trkNm.substring(0,trkNm.length-4);
+			trackName.innerHTML = (i+1)+")  "+ trkNm.substring(0,trkNm.length-4);
 		
 		var artistName = document.createElement("div");
 		artistName.innerHTML = defaultArtist;
@@ -395,6 +419,7 @@ window.onload = function(){
 		document.getElementById("chartHeading").innerHTML = 
 			settingsForm.elements["chartName"].value;
 		themeSettings();
+		uploadFont();
 		closeSettings();
 		
 		
@@ -417,6 +442,39 @@ window.onload = function(){
 		} 
 			
 	}
+	
+	function uploadFont(){
+		//let font = settingsForm.elements["fontInput"].value;
+		const fontFile = settingsForm.elements["fontInput"].files;
+
+		if (FileReader && fontFile && fontFile.length){
+			var fr = new FileReader();
+			fr.onload = function(){
+
+				var fontURL = fr.result;
+				fontLoad(fontURL);
+	
+			}
+			fr.readAsDataURL(fontFile[0]);
+			
+		}
+		else{
+			document.innerHTML = "not supported";
+		}		
+		
+	}
+	
+	function fontLoad(font){
+		
+		var f = new FontFace("Disney", "url('"+font+"')",{});
+		f.load().then(function(loadedFace){
+			document.fonts.add(loadedFace);
+			document.body.style.fontFamily = "Disney, serif";
+		});
+		
+	}
+	
+	
 	
 	function closeSettings(){
 		document.getElementById("mainSettings")
