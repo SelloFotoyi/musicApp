@@ -99,24 +99,18 @@ window.onload = function(){
 		
 		var trackName = document.createElement("div");
 		let trkNm = playListArr[i].name;
-		if(trkNm.length > 43)
-			trackName.innerHTML = trkNm.substring(0,35) + "...";
-		else 
-			trackName.innerHTML = trkNm.substring(0,trkNm.length-4);
-		
-	//	trackName.innerHTML = playListArr[i].name;
+		if(trkNm.length > 60)
+			trackName.innerHTML = (i+1)+"\) "+ trkNm.substring(0,60)+"...";
+		else
+			trackName.innerHTML = (i+1)+"\)  "+ trkNm.substring(0,trkNm.length-4);
 		
 		var artistName = document.createElement("div");
-		artistName.style.textAlign = "center";
 		artistName.innerHTML = defaultArtist;
 		artistName.style.color = "black";
 		
 		var albumName = document.createElement("div");
 		albumName.innerHTML = defaultAlbum;
-		albumName.style.textAlign = "center";
-		var deleter = document.createElement("div");
-		deleter.innerHTML = "delete";
-		deleter.style.textAlign = "center";
+
 	
 		var trackDetail = document.createElement("div");
 		trackDetail.style.height = "40px";
@@ -127,11 +121,11 @@ window.onload = function(){
 		trackDetail.style.justifyContent = "space-between";
 		
 
-		trackDetail.appendChild(trackNumber);
+	//	trackDetail.appendChild(trackNumber);
 		trackDetail.appendChild(trackName);
 		trackDetail.appendChild(artistName);
 		trackDetail.appendChild(albumName);
-		trackDetail.appendChild(deleter);
+
 	
 		
 		var trackDetailNodes = trackDetail.childNodes;
@@ -140,7 +134,7 @@ window.onload = function(){
 			node.style.flexBasis = "300px";
 			node.style.alignSelf = "center";
 		}
-		trackDetailNodes[0].style.flexBasis = "25px";
+		trackDetailNodes[0].style.flexBasis = "500px";
 			
 /*		if(playListArr.length%2 == 0){
 			trackDetail.style.backgroundColor = 
@@ -387,6 +381,7 @@ window.onload = function(){
 		currentTrack = tracksIndex+1;
 		uploadSong();
 		highLight();
+		scrollToPlaying();
 	}
 	
 	

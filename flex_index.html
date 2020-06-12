@@ -22,7 +22,7 @@
                 <div id = "faceImage">
 					<input style = "visibility:hidden" id = "faceImageInput" type = "file" name = "faceImageInput" accept = "Image/*">
                     <label id = "faceImageSelector" for="faceImageInput">
-						<img id = "face_img" src = "chart_img.jpg" title = "click to add default image">
+						<img id = "face_img" src = "default_image.png" title = "click to add default image">
                     </label>				
                 </div>
 
@@ -49,37 +49,31 @@
 
                 <div id = "mainSettings">
                     <form id = "settingsForm">
-                        <label>Chart name</label><span class = "spacing"><label style="margin-left:170px">Theme</label></span> <br>
-                        <input type = "text" id = "chartName" value="My Music Chart" name = "chartName"><span class = "spacing"> <input id = "theme1" style="margin-left:50px" type = "color" name = "theme" value = "#708090"> +
-                        <input type = "color" name = "theme2" id = "theme2" value = "#d3d3d3"></span><br>
-							<br>
-
-
-							<label>Font</label>  <span class = "spacing"><label style="margin-left:190px">Order of playing songs</label></span> <br>
-							<input type = "text" list = "fontList">
-							<datalist id = "fontList">
-								<option value = "font 1">
-								<option value = "font 2">
-								<option value = "font 2">
-								<option value = "font 3">
-							</datalist>
-
-							<span class = "spacing"><input style="margin-left:40px" type = "text" list = "playingOrder"></span>
+                        <label>Chart name</label><br>
+                        <input type = "text" id = "chartName" value="My Music Chart" name = "chartName"><br><br>
+						<label>Theme</label></span> <br>
+						<input id = "theme1" type = "color" name = "theme" value = "#708090"> +
+                        <input type = "color" name = "theme2" id = "theme2" value = "#d3d3d3">
+						<br><br>
+						<label>Font</label><br>  
+						<input type = "text" list = "fontList">
+						<datalist id = "fontList">
+							<option value = "font 1">
+							<option value = "font 2">
+							<option value = "font 2">
+							<option value = "font 3">
+						</datalist>
+						<br><br>
+						<label>Order of playing songs</label><br>
+						<input type = "text" list = "playingOrder">
 							<datalist id = "playingOrder">
 								<option value = "Ascending">
 								<option value = "Descending">
 								<option value = "Shuffled">
 							</datalist>
-							<br>
-
-
-							<br>
-							<input type = "checkbox" name = "autostop">Autostop chart  <input style = "margin-left:115px" type = "checkbox" name = "defaultImg">Set default chart image <br>
-							Play chart for: <input type = "time" name = "stopTime">  <input style="visibility:hidden" id = "fileElem" type = "file" name = "fileElem" accept = "image/*">
-																					<label style = "margin-left:250px" id = "defaultImageSelector" for="fileElem">Select image</label>
-							<br><br><br>
-							<input type = "button" id = "saveButton"  value = "Save">
-							<input type = "button" id = "cancelButton" value = "Cancel">
+						<br><br>
+						<input type = "button" id = "saveButton"  value = "Save">
+						<input type = "button" id = "cancelButton" value = "Cancel">
 
                     </form>
 
@@ -183,7 +177,7 @@
     <div id = "currentlyPlaying">
         <div id = "currentSongDetails">
             <div id = "currentSongImage">
-                <img id = "footerImage" src = "chart_img.jpg">
+                <img id = "footerImage" src = "default_image.png">
             </div>
 
             <div id = "songTitleAndArtist">
