@@ -45,9 +45,15 @@
 	justify-content:center;
 	align-items:center;
 }
-#upperImage{
+#faceImageInput{
+	width:1px;
+}
+#face_img{
 	width:300px;
 	height:250px; /*maybe 300px*/
+}
+#face_img:hover{
+	cursor:pointer;
 }
 #chartInfo{
 	flex-basis:650px;

@@ -20,7 +20,10 @@
         <div id = "charterTracks">
             <div id = "face">
                 <div id = "faceImage">
-                    <img id = "upperImage" src = "chart_img.jpg">
+					<input style = "visibility:hidden" id = "faceImageInput" type = "file" name = "faceImageInput" accept = "Image/*">
+                    <label id = "faceImageSelector" for="faceImageInput">
+						<img id = "face_img" src = "chart_img.jpg" title = "click to add default image">
+                    </label>				
                 </div>
 
                 <div id = "chartInfo">

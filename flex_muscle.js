@@ -29,31 +29,31 @@ window.onload = function(){
 	
 	
 	//****************** Default image add **************
-	var defaultImage = document.getElementById("defaultImageSelector");
-	defaultImage.addEventListener("click", chooseImage,false);
+	const defaultImage = document.getElementById("faceImageInput");
+	defaultImage.addEventListener("change", chooseImage,false);
 	
 	function chooseImage(){
-		const imageFile = this.files;
-		if(FileReader && imageFile && imageFile.length){
+		const chosen_img = this.files;
+		if(FileReader && chosen_img && chosen_img.length){
 				
 			var image_fr = new FileReader();
 				
 			image_fr.onload = function(){
-				document.getElementById("upperImage").src = image_fr.result;
-				document.getElementById("upperImage").style.height = "250px";
-				document.getElementById("upperImage").style.width = "300px";
-/*				document.getElementById("footerImage").src = image_fr.result;
+				document.getElementById("face_img").src = image_fr.result;
+				document.getElementById("face_img").style.height = "250px";
+				document.getElementById("face_img").style.width = "350px";
+				document.getElementById("footerImage").src = image_fr.result;
 				document.getElementById("footerImage").style.height = "50px";
-				document.getElementById("footerImage").style.width = "50px";*/
+				document.getElementById("footerImage").style.width = "50px";
 			}
 			
-				image_fr.readAsDataURL(imageFile[0]);
+				image_fr.readAsDataURL(chosen_img[0]);
 			
 			
 		}
 	}
 	
-	//******************song add ***********************
+	//****************** song add ***********************
 	const inputElem = document.getElementById("songAddInput");
 	inputElem.addEventListener("change",handleFiles,false);
 	
@@ -292,14 +292,8 @@ window.onload = function(){
 	function stop(){
 		tracksIndex = 0;
 		currentTrack = tracksIndex+1;
-	
-	//	uploadSong();
-	//	trackSrc.pause();
-	//	trackSrc.currentTime = 0.0;
 		highLight();
 		trackSrc.src = "";
-		
-		
 	}
 	
 	function loop(){
