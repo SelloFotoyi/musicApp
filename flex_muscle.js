@@ -181,9 +181,7 @@ window.onload = function(){
 				uploadSong();
 				highLight();
 			});
-			//player[i].addEventListener("dclick", playClicked);
-			
-			
+		
 			
 		}
 	
