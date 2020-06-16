@@ -7,8 +7,21 @@ window.onload = function(){
 	var deletions = 0;
 	
 	//playlist variables
-	var playListArr = new Array();
-	var playList = document.getElementById("playList");
+	var playListArr = new Array(); //logic playlist
+	
+	//create and setup visual playlist
+	var playList = document.createElement("div");
+	playList.style.backgroundColor = "white";
+	playList.style.color = "black";
+	playList.style.height = "250px";
+	playList.style.overflow = "auto";
+	playList.style.overflowX = "hidden";
+	playList.style.overflowY = "visible";
+	playList.style.border = "5px solid white";
+	playList.style.display = "flex";
+	playList.style.flexDirection = "column";
+	document.getElementById("charterTracks").appendChild(playList);
+	
 	var trackSrc = document.getElementById("currentAudio");
 	
 	var songAddTracker = 0;
@@ -142,7 +155,7 @@ window.onload = function(){
 		songPlayEvents();
 		songDeleteEvents();
 	
-		for(let i = 3; i < player.length; i++){
+		for(let i = 0; i < player.length; i++){
 			player[i].style.flexBasis = "300px";
 			player[i].style.padding = "3.5px"			
 		}
@@ -178,13 +191,13 @@ window.onload = function(){
 	function songPlayEvents(){
 		let player = playList.childNodes;
 		
-		for(let i = 3; i < player.length; i++){
+		for(let i = 0; i < player.length; i++){
 			let trackDetails = player[i].childNodes;
 			
 			for(let j = 0; j < (trackDetails.length-1); j++){
 				trackDetails[j].addEventListener("click",function(){
 				trackSrc.src = "";
-				tracksIndex = i-3;
+				tracksIndex = i;
 				currentTrack = tracksIndex+1;
 				uploadSong();
 				highLight();					
@@ -216,11 +229,11 @@ window.onload = function(){
 		
 		let playing = playList.childNodes;
 		
-		for(let i = 3; i < playing.length; i++){
+		for(let i = 0; i < playing.length; i++){
 			
 			let tNumber = playing[i].firstChild;
 		
-			tNumber.innerHTML = (i-2);
+			tNumber.innerHTML = (i+1);
 	
 		}
 		
@@ -400,30 +413,30 @@ window.onload = function(){
 		
 		let rows = playList.childNodes;
 		
-	 	for(let i = 3; i < rows.length; i++){
+	 	for(let i = 0; i < rows.length; i++){
 			rows[i].style.border="0px";
 			rows[i].style.fontWeight="normal";
 			rows[i].style.fontStyle = "normal";
 			
 		}
 		
-		rows[tracksIndex+3].style.border = "3.5px dashed black";
-		rows[tracksIndex+3].style.fontWeight = "bold";
-		rows[tracksIndex+3].style.fontStyle = "italic";
+		rows[tracksIndex].style.border = "3.5px dashed black";
+		rows[tracksIndex].style.fontWeight = "bold";
+		rows[tracksIndex].style.fontStyle = "italic";
 		
 		updateCurrent();
 
 	}
 	
 	function scrollToPlaying(){
-		if(tracksIndex < 3){
+	/*	if(tracksIndex < 3){
 			playList.scrollTo(0,0);
-		}
+		}*/
 		let playRect = playList.childNodes;
 		let playPos = playRect[tracksIndex].getBoundingClientRect();
 
 			
-		playList.scrollTo(0,tracksIndex*playPos.height);
+		playList.scrollTo(0,playPos.height);
 	}
 	
 	function updateCurrent(){
@@ -473,8 +486,8 @@ window.onload = function(){
 			let rowColor = "grey";
 		
 		let playLister = playList.childNodes;
-		playLister[3].style.backgroundColor = "white";
- 		for(let i = 4; i <playLister.length ; i++){
+		playLister[0].style.backgroundColor = "white";
+ 		for(let i = 1; i <playLister.length ; i++){
 			let prev = playLister[i-1];
 			if(prev.style.backgroundColor == "white")
 				playLister[i].style.backgroundColor = rowColor;
