@@ -4,22 +4,12 @@ window.onload = function(){
  	
 	
 	var additions = 0;
+	var deletions = 0;
 	
 	//playlist variables
 	var playListArr = new Array();
 	var playList = document.getElementById("playList");
-	
-	
-
-/*	
-	var listTrackNumbers = document.getElementsByClassName("listTrackNumber");
- 	var listTrackNames = document.getElementsByClassName("listTrackName");
-	var listArtistNames = document.getElementsByClassName("listArtistName");
-	var listAlbums = document.getElementsByClassName("listAlbum"); 
-	var songDeleters = document.getElementsByClassName("listTrackDelete");
-	
-	var playlistRow = document.getElementsByClassName("trackDetail");
-	*/
+	var trackSrc = document.getElementById("currentAudio");
 	
 	var songAddTracker = 0;
 	var tracksIndex = 0;	// @start of array
@@ -28,30 +18,6 @@ window.onload = function(){
 	var defaultAlbum = "Uknown Album";
 	
 	
-	//***************** uplading font ******************
-	
-//	let userFont = document.getElementById("fontInput");
-//	userFont.addEventListener("change",chooseFont);
-	
-/*	function chooseFont(){
-		const chosen_font = this.files;
-		let userFontName = "userFont";
-		if(FileReader && chosen_font &&chosen_font.length){
-			let font_fr = new FileReader();
-			font_fr.onload = function(){
-				let newFont = document.createElement("style");
-				newFont.appendChild(document.createTextNode("\
-					@font-face{\
-						font-family: " + userFontName + ";\
-						src:url('" + font_fr.result + "') format('ttf');\
-					}\
-				));
-				document.head.replaceChild(newFont,head.lastChild);
-			}
-			
-			font_fr.readAsDataURL(chosen_font[0]);
-		}
-	}*/
 	
 	
 	//****************** Default image add **************
@@ -119,7 +85,7 @@ window.onload = function(){
 	//	document.getElementById("chartHeading").innerHTML = "in here";
 
 		var trackNumber = document.createElement("div");
-		trackNumber.innerHTML = (i+1) + ". ";
+		trackNumber.innerHTML = (i+1);
 		
 		var trackName = document.createElement("div");
 		let trkNm = playListArr[i].name;
@@ -173,32 +139,12 @@ window.onload = function(){
 		themeSettings();
 		
 		var player = playList.childNodes;
-	//	songPlayEvents();
-//		songDeleteEvents();
+		songPlayEvents();
+		songDeleteEvents();
 	
 		for(let i = 3; i < player.length; i++){
-			
 			player[i].style.flexBasis = "300px";
-			player[i].style.padding = "3.5px"
-			
-			/*player[i].addEventListener("mouseover",function(){
-				player[i].style.cursor = "pointer";
-				player[i].style.fontWeight = "bold";
-				
-			});
-			player[i].addEventListener("mouseout", function(){
-				highLight();
-			});*/
-			
-		/*	player[i].addEventListener("click", function(){
-				stop();
-				tracksIndex = i-3;
-				currentTrack = tracksIndex+1;
-				uploadSong();
-				highLight();
-			});*/
-		
-			
+			player[i].style.padding = "3.5px"			
 		}
 	
 	}
@@ -209,7 +155,7 @@ window.onload = function(){
 			trackDetails[i].addEventListener("mouseover",function(){
 			trackDetails[i].target = "play track";
 			trackDetails[i].style.cursor = "pointer";
-			trackDetail.style.fontWeight = "bold";
+		/*	trackDetail.style.fontWeight = "bold";*/
 			trackDetail.style.border = "3.5px dotted green";
 			});
 			trackDetails[i].addEventListener("mouseout",function(){
@@ -221,8 +167,8 @@ window.onload = function(){
 		deleteTrack.addEventListener("mouseover",function(){
 			deleteTrack.target = "delete track";
 			deleteTrack.style.cursor = "pointer";
-			trackDetail.style.fontWeight = "bold";
-			trackDetail.style.border = "3.5px dotted red";
+		/*	trackDetail.style.fontWeight = "bold";
+			trackDetail.style.border = "3.5px dotted red";*/
 		});
 		deleteTrack.addEventListener("mouseout",function(){
 			highLight();
@@ -230,45 +176,80 @@ window.onload = function(){
 	}
 	
 	function songPlayEvents(){
-		/*let player = playList.childNodes;
+		let player = playList.childNodes;
 		
 		for(let i = 3; i < player.length; i++){
 			let trackDetails = player[i].childNodes;
 			
 			for(let j = 0; j < (trackDetails.length-1); j++){
 				trackDetails[j].addEventListener("click",function(){
-				stop();
+				trackSrc.src = "";
 				tracksIndex = i-3;
 				currentTrack = tracksIndex+1;
 				uploadSong();
 				highLight();					
 				});
 			}
-		}*/
+		}
+		document.getElementById("chartHeading").innerHTML = tracksIndex;
 	}
 	
 	function songDeleteEvents(){
 		
-		let player = playList.childNodes;
+	//	let player = playList.childNodes;
 		let detail = playList.lastChild;
 		let delDetail = detail.lastChild
 		
 		delDetail.addEventListener("click", function(){
+			let pos = (detail.firstChild).innerHTML;
 			detail.remove();
+			adjustIndex();
+			themeSettings();
+			splicePlayList(pos);
 		});
-		for(let i = 3; i < player.length; i++){
-			if(i%2 == 0)
-				player[i].style.backgroundColor = "red";
-		}
+		
+	//	coloring();
+	deletions++;
 	}
 	
+	function adjustIndex(){
+		
+		let playing = playList.childNodes;
+		
+		for(let i = 3; i < playing.length; i++){
+			
+			let tNumber = playing[i].firstChild;
+		
+			tNumber.innerHTML = (i-2);
 	
+		}
+		
+	}
+	
+	function splicePlayList(pos){
+		
+		let deletedIndex = parseInt(pos)-1;
+		playListArr.splice(deletedIndex,1);
+		let temp = songAddTracker;
+		songAddTracker--;
+		if (songAddTracker == temp)
+			songAddTracker = 0;
+		if((tracksIndex == deletedIndex) && (songAddTracker>=1)){
+			tracksIndex--;
+			currentTrack = tracksIndex+1;
+		//	next();
+		}
+		document.getElementById("chartHeading").innerHTML = tracksIndex;
+		
+		
+		
+	}
 	
 	
 	
 	
 	 //for user
-	var trackSrc = document.getElementById("currentAudio");
+	
 	
 	
 	//play functionality
@@ -318,6 +299,7 @@ window.onload = function(){
 				return;
 			}
 			uploadSong();
+			scrollToPlaying();
 			return;
 		}
 		//add outOfBound check later
@@ -332,6 +314,7 @@ window.onload = function(){
 			
 		}
 		scrollToPlaying();
+		document.getElementById("chartHeading").innerHTML = tracksIndex;
 		
 	}
 	
@@ -424,7 +407,7 @@ window.onload = function(){
 			
 		}
 		
-		rows[tracksIndex+3].style.border = "3.5px dashed grey";
+		rows[tracksIndex+3].style.border = "3.5px dashed black";
 		rows[tracksIndex+3].style.fontWeight = "bold";
 		rows[tracksIndex+3].style.fontStyle = "italic";
 		
@@ -461,6 +444,7 @@ window.onload = function(){
 		uploadSong();
 		highLight();
 		scrollToPlaying();
+		document.getElementById("chartHeading").innerHTML = tracksIndex;
 	}
 	
 	
@@ -486,13 +470,22 @@ window.onload = function(){
 			= settingsForm.elements["theme1"].value;
 		document.getElementById("currentlyPlaying").style.backgroundColor
 			= settingsForm.elements["theme1"].value;
+			let rowColor = "grey";
 		
 		let playLister = playList.childNodes;
- 		for(let i = 3; i <playLister.length ; i++){
-			if (i %2 == 0){
+		playLister[3].style.backgroundColor = "white";
+ 		for(let i = 4; i <playLister.length ; i++){
+			let prev = playLister[i-1];
+			if(prev.style.backgroundColor == "white")
+				playLister[i].style.backgroundColor = rowColor;
+			else if (prev.style.backgroundColor == rowColor)
+				playLister[i].style.backgroundColor = "white";
+			
+			
+	/*		if (i %2 == 0){
 				playLister[i].style.backgroundColor =
 				settingsForm.elements["theme2"].value;
-			}
+			}*/
 				
 		} 
 			
