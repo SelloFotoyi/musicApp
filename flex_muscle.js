@@ -119,14 +119,14 @@ window.onload = function(){
 	//	document.getElementById("chartHeading").innerHTML = "in here";
 
 		var trackNumber = document.createElement("div");
-		trackNumber.innerHTML = i+1;
+		trackNumber.innerHTML = (i+1) + ". ";
 		
 		var trackName = document.createElement("div");
 		let trkNm = playListArr[i].name;
-		if(trkNm.length > 60)
-			trackName.innerHTML = (i+1)+") "+ trkNm.substring(0,60)+"...";
+		if(trkNm.length > 45)
+			trackName.innerHTML = trkNm.substring(0,45)+"...";
 		else
-			trackName.innerHTML = (i+1)+")  "+ trkNm.substring(0,trkNm.length-4);
+			trackName.innerHTML = trkNm.substring(0,trkNm.length-4);
 		
 		var artistName = document.createElement("div");
 		artistName.innerHTML = defaultArtist;
@@ -134,6 +134,13 @@ window.onload = function(){
 		
 		var albumName = document.createElement("div");
 		albumName.innerHTML = defaultAlbum;
+		
+		var deleter = document.createElement("div");
+		let deleteImg = document.createElement("img");
+		deleteImg.src = "icons/delete2.png";
+		deleteImg.style.width = "20px";
+		deleteImg.style.height = "20px";
+		deleter.appendChild(deleteImg);
 
 	
 		var trackDetail = document.createElement("div");
@@ -145,75 +152,123 @@ window.onload = function(){
 		trackDetail.style.justifyContent = "space-between";
 		
 
-	//	trackDetail.appendChild(trackNumber);
+		trackDetail.appendChild(trackNumber);
 		trackDetail.appendChild(trackName);
 		trackDetail.appendChild(artistName);
 		trackDetail.appendChild(albumName);
-
+		trackDetail.appendChild(deleter);
 	
-		
+		highLightEvents(trackDetail);
 		var trackDetailNodes = trackDetail.childNodes;
+		
+		
 		
 		for(let node of trackDetailNodes){
 			node.style.flexBasis = "300px";
 			node.style.alignSelf = "center";
 		}
-		trackDetailNodes[0].style.flexBasis = "500px";
-			
-/*		if(playListArr.length%2 == 0){
-			trackDetail.style.backgroundColor = 
-				settingsForm.elements["theme2"].value;
-		}*/
-		
-	//	else if (playListArr.length %2 != 0){
-	//		trackDetail.style.backgroundColor = "white";
-	//	}
+		trackDetailNodes[0].style.flexBasis = "20px";
 	
 		playList.appendChild(trackDetail);
 		themeSettings();
 		
 		var player = playList.childNodes;
-		
-	
-		
-	//	player[3].style.backgroundColor = "red";
+	//	songPlayEvents();
+//		songDeleteEvents();
 	
 		for(let i = 3; i < player.length; i++){
 			
 			player[i].style.flexBasis = "300px";
 			player[i].style.padding = "3.5px"
 			
-			player[i].addEventListener("mouseover",function(){
+			/*player[i].addEventListener("mouseover",function(){
 				player[i].style.cursor = "pointer";
 				player[i].style.fontWeight = "bold";
 				
 			});
 			player[i].addEventListener("mouseout", function(){
 				highLight();
-			});
+			});*/
 			
-			player[i].addEventListener("click", function(){
+		/*	player[i].addEventListener("click", function(){
 				stop();
 				tracksIndex = i-3;
 				currentTrack = tracksIndex+1;
 				uploadSong();
 				highLight();
-			});
+			});*/
 		
 			
 		}
 	
 	}
 	
+	function highLightEvents(trackDetail){
+		let trackDetails = trackDetail.childNodes;
+		for(let i = 0; i < (trackDetails.length-1); i++){
+			trackDetails[i].addEventListener("mouseover",function(){
+			trackDetails[i].target = "play track";
+			trackDetails[i].style.cursor = "pointer";
+			trackDetail.style.fontWeight = "bold";
+			trackDetail.style.border = "3.5px dotted green";
+			});
+			trackDetails[i].addEventListener("mouseout",function(){
+			highLight();
+			});
+		}
+
+		let deleteTrack = trackDetail.lastChild; 
+		deleteTrack.addEventListener("mouseover",function(){
+			deleteTrack.target = "delete track";
+			deleteTrack.style.cursor = "pointer";
+			trackDetail.style.fontWeight = "bold";
+			trackDetail.style.border = "3.5px dotted red";
+		});
+		deleteTrack.addEventListener("mouseout",function(){
+			highLight();
+		});
+	}
+	
+	function songPlayEvents(){
+		/*let player = playList.childNodes;
+		
+		for(let i = 3; i < player.length; i++){
+			let trackDetails = player[i].childNodes;
+			
+			for(let j = 0; j < (trackDetails.length-1); j++){
+				trackDetails[j].addEventListener("click",function(){
+				stop();
+				tracksIndex = i-3;
+				currentTrack = tracksIndex+1;
+				uploadSong();
+				highLight();					
+				});
+			}
+		}*/
+	}
+	
+	function songDeleteEvents(){
+		
+		let player = playList.childNodes;
+		let detail = playList.lastChild;
+		let delDetail = detail.lastChild
+		
+		delDetail.addEventListener("click", function(){
+			detail.remove();
+		});
+		for(let i = 3; i < player.length; i++){
+			if(i%2 == 0)
+				player[i].style.backgroundColor = "red";
+		}
+	}
+	
+	
+	
 	
 	
 	
 	 //for user
 	var trackSrc = document.getElementById("currentAudio");
-	
-	//highlight currently playing track on playlist
-	
-	//playlistRow[tracksIndex].style.fontWeight = "bold";
 	
 	
 	//play functionality
@@ -444,7 +499,7 @@ window.onload = function(){
 	}
 	
 	function uploadFont(){
-		//let font = settingsForm.elements["fontInput"].value;
+	
 		const fontFile = settingsForm.elements["fontInput"].files;
 
 		if (FileReader && fontFile && fontFile.length){
