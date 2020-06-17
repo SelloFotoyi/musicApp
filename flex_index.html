@@ -10,14 +10,6 @@
 <body>
 <div id = "charter">
     <div id = "upperSection">
-       <!-- <div id = "sideMenu">
-            <div class = "sideMenuIcon"><!--<img src = "icons/close.png" title = "close menu"></div>
-            <div class = "sideMenuIcon"><!--<img src = "icons/edit2.png" title = "chart title"></div>
-            <div class = "sideMenuIcon"><!--<img src = "icons/theme3.png" title = "theme"></div>
-            <div class = "sideMenuIcon"><!--<img src = "icons/limit3.png" title = "limit number of songs"></div>
-            <div class = "sideMenuIcon"><!--<img src = "icons/order2.png" title = "playing order"></div>
-        </div>-->
-
         <div id = "charterTracks">
             <div id = "face">
                 <div id = "faceImage">
@@ -28,8 +20,18 @@
                 </div>
 
                 <div id = "chartInfo">
-                    <div><h1 id = "chartHeading">Click <img src = "icons/add_solid.png" height = "20px" width = "20px"> to add songs</h1></div>
-                    <div id = "upperArtistName">Click  <img src = "icons/play5.png" width = "15px" height = "15px">  to initiate playlist</div>
+                    <div>
+						<h1 id = "chartHeading">
+							Click 
+								<img src = "icons/add_solid.png" height = "20px" width = "20px">
+							to add songs
+						</h1>
+					</div>
+                    <div id = "upperArtistName">
+						Click  
+							<img src = "icons/play5.png" width = "15px" height = "15px"> 
+						to initiate playlist
+					</div>
                     <div id = "upperTrackTitle">Click <img src = "icons/setting2.png" width = "15px" height = "15px"> for customization </div>
                     <div id = "songAdder">
                         <input style = "visibility:hidden" id = "songAddInput" type = "file" name = "songAddInput" multiple accept = ".mp3">
@@ -92,7 +94,7 @@
         </div>
 
         <audio id = "currentAudio" controls autoplay>
-            <source id = "trackSource" <!--src = "Favorite Drive.mp3"-->
+            <source id = "trackSource"
                     type = "audio/mp3">
             audio not supported by your browser
         </audio>

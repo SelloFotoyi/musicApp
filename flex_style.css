@@ -1,37 +1,15 @@
-/*@font-face{
-	font-family:Disney;
-	src:url('waltographUI.ttf');
-}*/
+
 #charter{
 	width:100%;
 	height:100%;
 	background-color:grey;
-	/*color:white;*/
 	display:flex;
 	flex-direction:column;
-	/*font-family:disney,sans-serif;*/
 }
 #upperSection{
 	display:flex;
 }
-#sideMenu{
-	flex-basis:0px;
-	background-color:LightGrey;
-	display:flex;
-	flex-direction:column;
-	justify-content:space-between;
-}
-.sideMenuIcon{
-	margin:3px;
-	
-}
-.sideMenuIcon img{
-	width:20px;
-	height:20px;
-}
-.sideMenuIcon:hover{
-	cursor:pointer;
-}
+
 #charterTracks{
 	flex-grow:1;
 	border:1px solid white;
@@ -55,7 +33,7 @@
 }
 #face_img{
 	width:300px;
-	height:250px; /*maybe 300px*/
+	height:250px;
 }
 #face_img:hover{
 	cursor:pointer;
@@ -74,7 +52,6 @@
 #settingsForm{
 	background-color:rgb(245,245,245);
 	color: black;
-/*	margin: 20px 50px 0px 20px;*/
 	margin-top:20px;
 	margin-right:50px;
 	padding-left:15px;
@@ -94,36 +71,18 @@
 .spacing{
 	margin-left:15px;
 }
-#saveButton{}
 #saveButton:hover{
 	cursor:pointer;
 }
 #cancelButton{
 	cursor:pointer;
 }
-/* #searchBar{
-	margin-top:auto;
-	align-self:center;
-	width:150px;	
-}
-#searchBar img{
-	width:20px;
-	height:20px;
-}
-#searchBar input{
-	border-radius:5px;
-} */
 #playAddSongs{
-	align-self:center;
 	margin-top:auto;
 	margin-bottom:10px;
 }
 #playAll{
 	text-align:center;
-}
-#searchSong img{
-	width:20px;
-	height:20px;
 }
 #playAll img{
 	width:20px;
@@ -149,62 +108,7 @@
 #playAddMenu label{
 	cursor:pointer;
 }
-#playList{
-	background-color:white;
-	color:black;
-	height:250px;
-	overflow:auto;
-	overflow-x:hidden;
-	overflow-y:visible;
-	border:5px solid white;
-	display:flex;
-	flex-direction:column;
-}
-#playList div{
-	height:30px;
-}
-.mark img{
-	height:15px;
-	width:15px;
-	margin-top:7px;
-}
 
-.trackDetail{
-	height:30px;
-	padding-left:20px;
-	padding-right:20px;
-	display:flex;
-	justify-content:space-between;
-}
-.trackDetail div{
-	flex-basis:300px;
-	padding:5px;
-}
-.trackDetail div:nth-child(1){/*track number column*/
-	flex-basis:10px;
-	margin:5px;
-	margin-top:5px;
-}
-.trackDetail div:nth-child(2){/*track marker column*/
-	flex-basis:10px;
-	margin:15px;
-	margin-top:0;
-}
-.trackDetail:nth-child(even){
-	color:black;
-}
-.trackDetail:nth-child(odd){
-	background-color:LightGrey;
-	color:black;
-}
-/*.trackDetail:nth-child(1){/*1st row in playList
-	background-color:grey;
-	color:black;
-	font-weight:bold;
-}*/
-.listTrackNumber div:nth-child(4){
-	color:blue;
-}
 #playHeader{
 	margin-left:0;
 	font-weight:bold;

@@ -8,7 +8,8 @@ window.onload = function(){
 	playList.style.backgroundColor = "white";
 	playList.style.color = "black";
 	playList.style.height = "250px";
-	playList.style.overflow = "auto";
+	playList.style.position = "relative";
+	playList.style.overflow = "scroll";
 	playList.style.overflowX = "hidden";
 	playList.style.overflowY = "visible";
 	playList.style.border = "5px solid white";
@@ -101,7 +102,6 @@ window.onload = function(){
 	
 	
 	
-	//*******************display playList *********************
 	//appends a track to visual playlist
 	function appendSong(i){
 
@@ -130,7 +130,7 @@ window.onload = function(){
 		songDeleteEvents();
 		songPlayEvents();
 	
-	}
+	}//end:appendSong(i)
 	
 	function generateTrackNumber(i){
 		let trackNumber = document.createElement("div");
@@ -141,7 +141,7 @@ window.onload = function(){
 	function generateTrackName(i){
 		let trackName = document.createElement("div");
 		let trkNm = playListArr[i].name;
-		if(trkNm.length > 45)
+		if(trkNm.length > 45)//truncates track name
 			trackName.innerHTML = trkNm.substring(0,45)+"...";
 		else
 			trackName.innerHTML = trkNm.substring(0,trkNm.length-4);
@@ -201,6 +201,7 @@ window.onload = function(){
 		let trckNum = trackDetail.firstChild;
 		let trckName = trckNum.nextSibling;
 		
+		//event for hovering over track name
 		trckName.addEventListener("mouseover", 
 		function(){
 			trckName.style.cursor = "pointer";
@@ -211,7 +212,7 @@ window.onload = function(){
 			trackDetail.style.color = "black";
 		});
 
-
+		//event for hovering aroung delete icon
 		let deleteTrack = trackDetail.lastChild; 
 		deleteTrack.addEventListener("mouseover",function(){
 			deleteTrack.style.cursor = "pointer";
@@ -229,8 +230,11 @@ window.onload = function(){
 			let tNum = trackDetails.firstChild;
 			let tName = tNum.nextSibling
 			tName.addEventListener("click", function(){
+				//stop currently playing song
 				trackSrc.src = "";
-				tracksIndex = i;
+				//assign tracksIndex to the clicked song
+				tracksIndex = i;	
+				//then play this clicked song
 				uploadSong();
 				highLight();
 				
@@ -243,17 +247,23 @@ window.onload = function(){
 	function songDeleteEvents(){
 
 		let detail = playList.lastChild;
-		let delDetail = detail.lastChild
+		let delDetail = detail.lastChild;
 		
 		delDetail.addEventListener("click", function(){
+			//obtain track number of song to be deleted
 			let pos = (detail.firstChild).innerHTML;
+			//delete song from visual playlist
 			detail.remove();
+			//readjust numbering of visual playlist
 			adjustIndex();
+			//ensure row coloring is maintained
 			themeSettings();
+			//delete track from logic playlist
 			splicePlayList(pos);
 		});
 	}
 	
+	//renumberes the track numbers after a song is deleted
 	function adjustIndex(){
 		
 		let playing = playList.childNodes;
@@ -268,32 +278,36 @@ window.onload = function(){
 		
 	}
 	
+	//removes deleted track from logic playlist
 	function splicePlayList(pos){
-
+		//convert track number to index number
 		let deletedIndex = parseInt(pos)-1;
+		//delete track from playlist
 		playListArr.splice(deletedIndex,1);
-		let temp = songAddTracker;
 		songAddTracker--;
-		if (songAddTracker == temp)
-			songAddTracker = 0;
+		//play next track if current track 
+		//is deleted
 		if((tracksIndex == deletedIndex) && (songAddTracker>=1)){
 			tracksIndex--;
 			next();
 		}
 		
-	}
+	}//end:splicePlayList(pos)
 	
 
 	
-	
+	//chooses the next track in playlist
 	function next(){
 		
 		if (isShuffle){
+			//generate random number within playList bounds 
+			//and assign it to tracksIndex
 			tracksIndex = Math.floor(Math.random()*playListArr.length);
 			uploadSong();
 			highLight();
 		}
 		
+		//upon reaching last track in playlist...
 		if((tracksIndex >= playListArr.length-1) && !(isShuffle)){
 			stop();
 			if(!isLoop){
@@ -304,7 +318,7 @@ window.onload = function(){
 			scrollToPlaying();
 			return;
 		}
-		//add outOfBound check later
+		
 		if((tracksIndex < playListArr.length-1)&& !(isShuffle)){
 
 			tracksIndex++;
@@ -316,22 +330,26 @@ window.onload = function(){
 		scrollToPlaying();
 		
 		
-	}
+	}//end:next()
 	
+	
+	//chooses previous track in playlist
 	function previous(){
 		
+		//same as in next() above
 		if (isShuffle){
 			tracksIndex = Math.floor(Math.random()*playListArr.length);
 			uploadSong();
 			highLight();
 		}
 		
+		//upon reaching first track in playlist...
 		if((tracksIndex == 0)&& !(isShuffle)){
 			stop();
 			return;
 		}
 
-		//add outOfBound check later
+		
 		if((tracksIndex >0)&& !(isShuffle)){
 			tracksIndex--;
 			uploadSong();
@@ -341,7 +359,7 @@ window.onload = function(){
 
 		scrollToPlaying();
 		
-	}
+	}//end:previous()
 	
 	function stop(){
 		tracksIndex = 0;
@@ -350,18 +368,20 @@ window.onload = function(){
 		trackSrc.src = "";
 	}
 	
+	//enables&disables playlist loop feature
 	function loop(){
+		//toggle loop variable
 		isLoop = !isLoop;
 		
 		if(isLoop == true)
-		{
+		{//choose the loop enable icon
 			var loopOn = document.createElement("img");
 			loopOn.src = "icons/loop_on_2.png";
 			loopOn.style.width = "30px"; 
 			loopOn.style.height = "30px";
 			loopMusic.replaceChild(loopOn,loopMusic.firstChild);
 		}
-		else if (isLoop == false){
+		else if (isLoop == false){//choose the loop disbled icon
 			var loopOff = document.createElement("img");
 			loopOff.src = "icons/loop_off_2.png";
 			loopOff.style.width = "30px"; 
@@ -370,7 +390,7 @@ window.onload = function(){
 		}
 			
 		
-	}
+	}//end:loop()
 	
 	function shuffle(){
 		isShuffle = !isShuffle;
@@ -392,7 +412,7 @@ window.onload = function(){
 	
 		
 	}
-	//event functions: end
+	
 	function highLight(){
 		
 		
@@ -414,35 +434,28 @@ window.onload = function(){
 	}
 	
 	function scrollToPlaying(){
-		if(tracksIndex < 7){
-			playList.scrollTo(0,0);
-		}
-		else{
-			let playRect = playList.childNodes;
-			let playPos = playRect[tracksIndex].getBoundingClientRect();
 
-			
-		playList.scrollTo(0,tracksIndex*playPos.height);			
-		}
-		
+		let playRect = playList.childNodes;
+		let trackPos = playRect[tracksIndex].offsetTop;
+		playList.scrollTop = trackPos;
 	}
 	
-	function updateCurrent(){
+	function updateCurrent(){//rename track details to cuurently playing
 		let currentTrackName = playListArr[tracksIndex].name;
 		document.getElementById("upperArtistName").innerHTML = defaultArtist;
 		document.getElementById("lowerArtistName").innerHTML = defaultArtist;
 		document.getElementById("upperTrackTitle").innerHTML
 			= currentTrackName.substring(0,(currentTrackName.length-4));
 		
-		if(currentTrackName.length > 43){
+		if(currentTrackName.length > 43){//truncates track name
 			document.getElementById("lowerTrackTitle").innerHTML
 				= currentTrackName.substring(0,25) + "...";
 		}
 		else {
 			document.getElementById("lowerTrackTitle").innerHTML 
-				= currentTrackName.substring(0,(currentTrackName.length-4));
+				= currentTrackName.substring(0,(currentTrackName.length-4));//remove filename extension
 		}
-	}
+	}//end:updateCurrent()
 	
 	function playAll(){
 		tracksIndex = 0;
@@ -467,13 +480,18 @@ window.onload = function(){
 		closeSettings();	
 	}
 	
+	//handles coloring
 	function themeSettings(){
+		//color the face and footer 
+		//using chosen color
 		document.getElementById("charterTracks").style.backgroundColor
 			= settingsForm.elements["theme1"].value;
 		document.getElementById("currentlyPlaying").style.backgroundColor
 			= settingsForm.elements["theme1"].value;
 			let rowColor = "grey";
 		
+		//color even and odd rows of playlist 
+		// with grey and white
 		let playLister = playList.childNodes;
 		playLister[0].style.backgroundColor = "white";
  		for(let i = 1; i <playLister.length ; i++){
@@ -484,8 +502,9 @@ window.onload = function(){
 				playLister[i].style.backgroundColor = "white"; 
 		} 
 			
-	}
+	}//end:themeSettings()
 	
+	//uploads user font file 
 	function uploadFont(){
 	
 		const fontFile = settingsForm.elements["fontInput"].files;
@@ -505,36 +524,40 @@ window.onload = function(){
 			document.innerHTML = "not supported";
 		}		
 		
-	}
+	}//end:uploadFont()
 	
-	function fontLoad(fontFile){
+	//implements @font-face everytime user uploads font
+	function fontLoad(font){
 		
-		var f = new FontFace("Disney", "url('"+fontFile+"')",{});
+		var f = new FontFace("Disney", "url('"+font+"')",{});
+		//change font of document after font file is loaded
 		f.load().then(function(loadedFace){
 			document.fonts.add(loadedFace);
 			document.body.style.fontFamily = "Disney, serif";
 		});
 		
-	}
+	}//end:fontLoad()
 	
 	
-	
+	//hides settings form
 	function closeSettings(){
 		document.getElementById("mainSettings")
 			.style.visibility = "hidden";
-	}
+	}//end:closeSettings()
  
+	//uploads mp3 file to audio element
 	function uploadSong(){
 		if(FileReader && playListArr && playListArr.length){
 				
 			var fr = new FileReader();
 				
 			fr.onload = function(){
+				//load song file to audio element
 				trackSrc.src = fr.result;
 			}
-			
+				//read the file in audio element
 				fr.readAsDataURL(playListArr[tracksIndex]); 
 		}		
-	}
+	}//end:uploadSong()
 
 };
