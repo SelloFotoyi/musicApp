@@ -24,6 +24,9 @@ window.onload = function(){
 	var stopMusic = document.getElementById("stop");
 	var loopMusic = document.getElementById("loop");
 	var shuffleMusic = document.getElementById("shufl");
+	var twitterIcon = document.getElementById("twitterIcon");
+	var linkedInIcon = document.getElementById("linkedInIcon");
+	var githubIcon = document.getElementById("githubIcon");
 	var isLoop = true;
 	var isShuffle = false;
 	var playAllSongs = document.getElementById("playAll");
@@ -33,11 +36,12 @@ window.onload = function(){
 	var defaultArtist = "Unknown Artist";
 	var defaultAlbum = "Uknown Album";
 	var settingsForm = document.getElementById("settingsForm");
+	var playingOrder = "Descending";
 	
 	
 	//add event listeners
 	nextTrack.addEventListener("click", next);
-	prev.addEventListener("click", previous);
+	prevTrack.addEventListener("click", previous);
 	stopMusic.addEventListener("click", stop);
 	loopMusic.addEventListener("click", loop);
 	shuffleMusic.addEventListener("click", shuffle);
@@ -50,7 +54,30 @@ window.onload = function(){
  	document.getElementById("settingsIcon")
 		.addEventListener("click", openSettings);
 	
+	// mouseover/mouseout events for footer icons 
+
+	twitterIcon.addEventListener("mouseover", function(){//hover:twitter
+		twitterIcon.src = "src/icons/twitter_blue.png";
+	});
+	twitterIcon.addEventListener("mouseout", function(){
+		twitterIcon.src = "src/icons/twitter_black.png";
+	});
 	
+
+	githubIcon.addEventListener("mouseover", function(){//hover:github
+		githubIcon.src = "src/icons/github_blue.svg";
+	});
+	githubIcon.addEventListener("mouseout", function(){
+		githubIcon.src = "src/icons/github_black.png";
+	});
+	
+
+	linkedInIcon.addEventListener("mouseover", function(){//hover:linkedIn
+		linkedInIcon.src = "src/icons/linkedIn_blue.png";
+	});
+	linkedInIcon.addEventListener("mouseout", function(){
+		linkedInIcon.src = "src/icons/linkedIn_black.png";
+	});	
 	
 	//Default image add
 	const defaultImage = document.getElementById("faceImageInput");
@@ -160,12 +187,10 @@ window.onload = function(){
 	function generateDeleter(){
 		let deleter = document.createElement("div");
 		let deleteImg = document.createElement("img");
-		deleteImg.src = "icons/delete2.png";
+		deleteImg.src = "src/icons/delete2.png";
 		deleteImg.style.width = "20px";
 		deleteImg.style.height = "20px";
-		deleter.appendChild(deleteImg);
-		deleter.style.textAlign = "right";
-		
+		deleter.appendChild(deleteImg);		
 		return deleter;
 	}
 	
@@ -257,9 +282,9 @@ window.onload = function(){
 			//readjust numbering of visual playlist
 			adjustIndex();
 			//ensure row coloring is maintained
-			themeSettings();
 			//delete track from logic playlist
 			splicePlayList(pos);
+			themer(playList);
 		});
 	}
 	
@@ -294,17 +319,19 @@ window.onload = function(){
 		
 	}//end:splicePlayList(pos)
 	
-
 	
 	//chooses the next track in playlist
 	function next(){
 		
+	/*	if(playingOrder == "Descending"){
+			trackSrc.src = "";
+			previous();
+			return;
+		}*/
+
+		
 		if (isShuffle){
-			//generate random number within playList bounds 
-			//and assign it to tracksIndex
-			tracksIndex = Math.floor(Math.random()*playListArr.length);
-			uploadSong();
-			highLight();
+			shuffleSong();
 		}
 		
 		//upon reaching last track in playlist...
@@ -336,11 +363,15 @@ window.onload = function(){
 	//chooses previous track in playlist
 	function previous(){
 		
+	/*	if(playingOrder == "Descending"){
+		//	trackSrc.src = "";
+			next();
+			return;
+		}*/
+		
 		//same as in next() above
 		if (isShuffle){
-			tracksIndex = Math.floor(Math.random()*playListArr.length);
-			uploadSong();
-			highLight();
+			shuffleSong();
 		}
 		
 		//upon reaching first track in playlist...
@@ -361,6 +392,14 @@ window.onload = function(){
 		
 	}//end:previous()
 	
+	function shuffleSong(){
+		//generate random number within playList bounds 
+			//and assign it to tracksIndex
+			tracksIndex = Math.floor(Math.random()*playListArr.length);
+			uploadSong();
+			highLight();		
+	}
+	
 	function stop(){
 		tracksIndex = 0;
 		currentTrack = tracksIndex+1;
@@ -376,14 +415,14 @@ window.onload = function(){
 		if(isLoop == true)
 		{//choose the loop enable icon
 			var loopOn = document.createElement("img");
-			loopOn.src = "icons/loop_on_2.png";
+			loopOn.src = "src/icons/loop_on_2.png";
 			loopOn.style.width = "30px"; 
 			loopOn.style.height = "30px";
 			loopMusic.replaceChild(loopOn,loopMusic.firstChild);
 		}
 		else if (isLoop == false){//choose the loop disbled icon
 			var loopOff = document.createElement("img");
-			loopOff.src = "icons/loop_off_2.png";
+			loopOff.src = "src/icons/loop_off_2.png";
 			loopOff.style.width = "30px"; 
 			loopOff.style.height = "30px";
 			loopMusic.replaceChild(loopOff,loopMusic.firstChild);			
@@ -397,14 +436,14 @@ window.onload = function(){
 		
 		if (isShuffle == true){
 			var shuffleOn = document.createElement("img");
-			shuffleOn.src = "icons/shuffle_on_2.png";
+			shuffleOn.src = "src/icons/shuffle_on_2.png";
 			shuffleOn.style.width = "30px"; 
 			shuffleOn.style.height = "30px";
 			shuffleMusic.replaceChild(shuffleOn,shuffleMusic.firstChild);			
 		}
 		else if (isShuffle == false){
 			var shuffleOff = document.createElement("img");
-			shuffleOff.src = "icons/shuffle_off_2.png";
+			shuffleOff.src = "src/icons/shuffle_off_2.png";
 			shuffleOff.style.width = "30px"; 
 			shuffleOff.style.height = "30px";
 			shuffleMusic.replaceChild(shuffleOff,shuffleMusic.firstChild);			
@@ -477,7 +516,10 @@ window.onload = function(){
 			settingsForm.elements["chartName"].value;
 		themeSettings();
 		uploadFont();
-		closeSettings();	
+		closeSettings();
+	/*	playingOrder = settingsForm.elements["playingOrder"].value;
+		if (playingOrder == "Shuffled")
+			shuffleMusic();	*/		
 	}
 	
 	//handles coloring
@@ -488,10 +530,10 @@ window.onload = function(){
 			= settingsForm.elements["theme1"].value;
 		document.getElementById("currentlyPlaying").style.backgroundColor
 			= settingsForm.elements["theme1"].value;
-			let rowColor = "grey";
+			let rowColor = "gainsboro";
 		
 		//color even and odd rows of playlist 
-		// with grey and white
+		// with light grey and white
 		let playLister = playList.childNodes;
 		playLister[0].style.backgroundColor = "white";
  		for(let i = 1; i <playLister.length ; i++){
@@ -501,8 +543,10 @@ window.onload = function(){
 			else if (prev.style.backgroundColor == rowColor)
 				playLister[i].style.backgroundColor = "white"; 
 		} 
-			
+
 	}//end:themeSettings()
+	
+
 	
 	//uploads user font file 
 	function uploadFont(){
@@ -559,5 +603,9 @@ window.onload = function(){
 				fr.readAsDataURL(playListArr[tracksIndex]); 
 		}		
 	}//end:uploadSong()
+	
+
+
+
 
 };

@@ -16,6 +16,7 @@
 	display:flex;
 	flex-direction:column;
 	background-color:grey;
+	flex-wrap:wrap;
 }
 #face{
 	flex-basis:300px;
@@ -28,6 +29,7 @@
 	display:flex;
 	justify-content:center;
 	align-items:center;
+	margin:25px;
 }
 #faceImageInput{
 	width:1px;
@@ -40,12 +42,14 @@
 	cursor:pointer;
 }
 #chartInfo{
-	flex-basis:650px;
+	flex-basis:900px;
 	flex-grow:0;
 	display:flex;
+	flex-wrap:wrap;
 	flex-direction:column;
 	margin-left:10px;
 }
+
 #mainSettings{
 	margin-left:0px;
 	flex-grow:1;
@@ -60,7 +64,7 @@
 	box-shadow:0px 0px 15px 12px black;
 }
 #settingsForm input{
-	border-radius:0px 10px 10px 0px;
+	border-radius:5px;
 }
 #defaultImageSelector{
 	border: 2px solid black;
@@ -119,6 +123,7 @@
 }
 
 #currentlyPlaying{
+	max-width:100%;
 	flex:0 0 50px;
 	background-color:grey;
 	display:flex;
@@ -179,4 +184,23 @@
 	cursor:pointer;
 	
 	
+}
+#footer{
+	background-color:rgb(173,173,173);
+	margin-top:10px;
+	text-align:center;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-content:center;
+}
+#socials{
+	display:flex;
+	flex-direction:row;
+	justify-content:center;
+}
+.socialIcons{
+	width:25px;
+	height:25px;
+	margin:5px;
 }

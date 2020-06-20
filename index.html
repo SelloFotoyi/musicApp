@@ -3,8 +3,8 @@
 <head>
     <title>Zile | Music Chart</title>
     <meta charset="UTF-8">
-    <link rel = "stylesheet" type = "text/css" href = "flex_style.css">
-    <script src = "flex_muscle.js"></script>
+    <link rel = "stylesheet" type = "text/css" href = "src/styles.css">
+    <script src = "src/script.js"></script>
 	<style></style><!-- to be replaced by the user when uploading own font-->
 </head>
 <body>
@@ -15,36 +15,36 @@
                 <div id = "faceImage">
 					<input style = "visibility:hidden" id = "faceImageInput" type = "file" name = "faceImageInput" accept = "Image/*">
                     <label id = "faceImageSelector" for="faceImageInput">
-						<img id = "face_img" src = "default_image.png" title = "click to add default image">
+						<img id = "face_img" src = "src/default_image.png" title = "click to add default image">
                     </label>				
                 </div>
 
                 <div id = "chartInfo">
-                    <div>
+                    <div id = "chartHeadingDiv">
 						<h1 id = "chartHeading">
 							Click 
-								<img src = "icons/add_solid.png" height = "20px" width = "20px">
+								<img src = "src/icons/add_solid.png" height = "20px" width = "20px">
 							to add songs
 						</h1>
 					</div>
                     <div id = "upperArtistName">
 						Click  
-							<img src = "icons/play5.png" width = "15px" height = "15px"> 
+							<img src = "src/icons/play5.png" width = "15px" height = "15px"> 
 						to initiate playlist
 					</div>
-                    <div id = "upperTrackTitle">Click <img src = "icons/setting2.png" width = "15px" height = "15px"> for customization </div>
+                    <div id = "upperTrackTitle">Click <img src = "src/icons/setting2.png" width = "15px" height = "15px"> for customization </div>
                     <div id = "songAdder">
                         <input style = "visibility:hidden" id = "songAddInput" type = "file" name = "songAddInput" multiple accept = ".mp3">
                     </div>
                     <div id = "playAddSongs">
                         <div id = "playAddMenu">
-                            <div id = "playAll"><img src = "icons/play5.png" title = "play all"></div>
+                            <div id = "playAll"><img src = "src/icons/play5.png" title = "play all"></div>
                             <div id = "addSongs">
                                 <label id = "addSongSelector" for="songAddInput">
-                                    <img src = "icons/add_solid.png" title = "add song">
+                                    <img src = "src/icons/add_solid.png" title = "add song">
                                 </label>
                             </div>
-                            <div id = "settingsIcon"><img src = "icons/setting2.png" title = "settings"> </div>
+                            <div id = "settingsIcon"><img src = "src/icons/setting2.png" title = "settings"> </div>
                         </div>
                     </div>
 
@@ -53,21 +53,12 @@
                 <div id = "mainSettings">
                     <form id = "settingsForm">
                         <label>Chart name</label><br>
-                        <input type = "text" id = "chartName" value="My Music Chart" name = "chartName"><br><br>
+                        <input type = "text" id = "chartName" value="My Music Chart" name = "chartName" maxlength = "35"><br><br>
 						<label>Theme</label></span> <br>
-						<input id = "theme1" type = "color" name = "theme" value = "#708090"> +
-                        <input type = "color" name = "theme2" id = "theme2" value = "#d3d3d3">
+						<input id = "theme1" type = "color" name = "theme" value = "#708090">
 						<br><br>
 						<label>Font (load .ttf or .otf file)</label><br>  
 						<input id = "fontInput" type = "file" name = "fontInput" accept = ".ttf,.otf">
-						<br><br>
-						<label>Order of playing songs</label><br>
-						<input type = "text" list = "playingOrder">
-							<datalist id = "playingOrder">
-								<option value = "Ascending">
-								<option value = "Descending">
-								<option value = "Shuffled">
-							</datalist>
 						<br><br>
 						<input type = "button" id = "saveButton"  value = "Save">
 						<input type = "button" id = "cancelButton" value = "Cancel">
@@ -84,7 +75,7 @@
     <div id = "currentlyPlaying">
         <div id = "currentSongDetails">
             <div id = "currentSongImage">
-                <img id = "footerImage" src = "default_image.png">
+                <img id = "footerImage" src = "src/default_image.png">
             </div>
 
             <div id = "songTitleAndArtist">
@@ -99,13 +90,40 @@
             audio not supported by your browser
         </audio>
         <div id = "trackOptions">
-            <div id = "prev" class = "trackOption"><img src = "icons/previous.png"></div>
-            <div id = "stop" class = "trackOption"><img src = "icons/stop_2.png"></div>
-            <div id = "next" class = "trackOption"><img src = "icons/next_2.png"></div>
-            <div id = "loop" class = "trackOption"><img src = "icons/loop_on_2.png"></div>
-            <div id = "shufl" class = "trackOption"><img src = "icons/shuffle_off_2.png"></div>
+            <div id = "prev" class = "trackOption"><img src = "src/icons/previous.png"></div>
+            <div id = "stop" class = "trackOption"><img src = "src/icons/stop_2.png"></div>
+            <div id = "next" class = "trackOption"><img src = "src/icons/next_2.png"></div>
+            <div id = "loop" class = "trackOption"><img src = "src/icons/loop_on_2.png"></div>
+            <div id = "shufl" class = "trackOption"><img src = "src/icons/shuffle_off_2.png"></div>
         </div>
     </div>
+</div>
+<div id = "footer">
+	<div><h2>My Socials</h2></div>
+	<div id = "socials">
+		<div id = "twitter">
+			<a href = "https://twitter.com/SelloCFotoyi" target = "_blank">
+				<img id = "twitterIcon" class = "socialIcons" src = "src/icons/twitter_black.png">
+			</a>
+		</div>
+		
+		<div id = "github">
+			<a href = "https://github.com/SelloFotoyi" target = "_blank">
+				<img id = "githubIcon" class = "socialIcons" src = "src/icons/github_black.png">
+			</a>		
+		</div>
+		
+		<div id = "linkedin">
+			<a href = "https://www.linkedin.com/in/sello-fotoyi-79132672/" target = "_blank">
+				<img id = "linkedInIcon" class = "socialIcons" src = "src/icons/linkedIn_black.png">
+			</a>
+		</div>
+	</div>
+	<div>
+		<p>
+			&copy 2020 Sello Clinton Fotoyi
+		</p>	
+	</div>
 </div>
 </body>
 </html>
