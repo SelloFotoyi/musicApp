@@ -15,7 +15,7 @@ window.onload = function(){
 	playList.style.border = "5px solid white";
 	playList.style.display = "flex"; //it's a flex container
 	playList.style.flexDirection = "column";
-	document.getElementById("charterTracks").appendChild(playList);
+	document.getElementById("upperSection").appendChild(playList);
 	
 	
 	//some variables
@@ -526,7 +526,7 @@ window.onload = function(){
 	function themeSettings(){
 		//color the face and footer 
 		//using chosen color
-		document.getElementById("charterTracks").style.backgroundColor
+		document.getElementById("upperSection").style.backgroundColor
 			= settingsForm.elements["theme1"].value;
 		document.getElementById("currentlyPlaying").style.backgroundColor
 			= settingsForm.elements["theme1"].value;

@@ -10,68 +10,60 @@
 <body>
 <div id = "charter">
     <div id = "upperSection">
-        <div id = "charterTracks">
-            <div id = "face">
-                <div id = "faceImage">
-					<input style = "visibility:hidden" id = "faceImageInput" type = "file" name = "faceImageInput" accept = "Image/*">
-                    <label id = "faceImageSelector" for="faceImageInput">
-						<img id = "face_img" src = "src/default_image.png" title = "click to add default image">
-                    </label>				
-                </div>
+        <div id = "face">
+            <div id = "faceImage">
+				<input style = "visibility:hidden" id = "faceImageInput" type = "file" name = "faceImageInput" accept = "Image/*">
+                <label id = "faceImageSelector" for="faceImageInput">
+					<img id = "face_img" src = "src/default_image.png" title = "click to add default image">
+                </label>				
+            </div>
 
-                <div id = "chartInfo">
-                    <div id = "chartHeadingDiv">
-						<h1 id = "chartHeading">
-							Click 
-								<img src = "src/icons/add_solid.png" height = "20px" width = "20px">
-							to add songs
-						</h1>
-					</div>
-                    <div id = "upperArtistName">
+            <div id = "chartInfo">
+                <div id = "chartHeadingDiv">
+					<h1 id = "chartHeading">
+						Click 
+							<img src = "src/icons/add_solid.png" height = "20px" width = "20px">
+						to add songs
+					</h1>
+				</div>
+                <div id = "upperArtistName">
 						Click  
 							<img src = "src/icons/play5.png" width = "15px" height = "15px"> 
 						to initiate playlist
-					</div>
-                    <div id = "upperTrackTitle">Click <img src = "src/icons/setting2.png" width = "15px" height = "15px"> for customization </div>
-                    <div id = "songAdder">
-                        <input style = "visibility:hidden" id = "songAddInput" type = "file" name = "songAddInput" multiple accept = ".mp3">
-                    </div>
-                    <div id = "playAddSongs">
-                        <div id = "playAddMenu">
-                            <div id = "playAll"><img src = "src/icons/play5.png" title = "play all"></div>
-                            <div id = "addSongs">
-                                <label id = "addSongSelector" for="songAddInput">
-                                    <img src = "src/icons/add_solid.png" title = "add song">
-                                </label>
-                            </div>
-                            <div id = "settingsIcon"><img src = "src/icons/setting2.png" title = "settings"> </div>
-                        </div>
-                    </div>
-
+				</div>
+                <div id = "upperTrackTitle">Click <img src = "src/icons/setting2.png" width = "15px" height = "15px"> for customization </div>
+                <div id = "songAdder">
+                    <input style = "visibility:hidden" id = "songAddInput" type = "file" name = "songAddInput" multiple accept = ".mp3">
                 </div>
-
-                <div id = "mainSettings">
-                    <form id = "settingsForm">
-                        <label>Chart name</label><br>
-                        <input type = "text" id = "chartName" value="My Music Chart" name = "chartName" maxlength = "35"><br><br>
-						<label>Theme</label></span> <br>
-						<input id = "theme1" type = "color" name = "theme" value = "#708090">
-						<br><br>
-						<label>Font (load .ttf or .otf file)</label><br>  
-						<input id = "fontInput" type = "file" name = "fontInput" accept = ".ttf,.otf">
-						<br><br>
-						<input type = "button" id = "saveButton"  value = "Save">
-						<input type = "button" id = "cancelButton" value = "Cancel">
-
-                    </form>
-
+                <div id = "playAddMenu">
+                    <div id = "playAll"><img src = "src/icons/play5.png" title = "play all"></div>
+                    <div id = "addSongs">
+                        <label id = "addSongSelector" for="songAddInput">
+                            <img src = "src/icons/add_solid.png" title = "add song">
+                        </label>
+                     </div>
+                     <div id = "settingsIcon"><img src = "src/icons/setting2.png" title = "settings"> </div>
+                    
                 </div>
             </div>
-
-
+            <div id = "mainSettings">
+                 <form id = "settingsForm">
+                    <label>Chart name</label><br>
+                    <input type = "text" id = "chartName" value="My Music Chart" name = "chartName" maxlength = "35"><br><br>
+					<label>Theme</label><br>
+					<input id = "theme1" type = "color" name = "theme" value = "#708090">
+					<br><br>
+					<label>Font (load .ttf or .otf file)</label><br>  
+					<input id = "fontInput" type = "file" name = "fontInput" accept = ".ttf,.otf">
+					<br><br>
+                    <input type = "button" id = "saveButton"  value = "Save">
+                	<input type = "button" id = "cancelButton" value = "Cancel">
+                </form>
+            </div>
         </div>
-
+        <!--playlist added here in js-->
     </div>
+        
     <div id = "currentlyPlaying">
         <div id = "currentSongDetails">
             <div id = "currentSongImage">

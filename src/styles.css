@@ -1,17 +1,18 @@
-
+body{
+	background-color:black;
+}
 #charter{
 	width:100%;
 	height:100%;
+	position: relative;
 	background-color:grey;
 	display:flex;
 	flex-direction:column;
 }
-#upperSection{
-	display:flex;
-}
 
-#charterTracks{
-	flex-grow:1;
+
+#upperSection{
+/*	flex-grow:1;*/
 	border:1px solid white;
 	display:flex;
 	flex-direction:column;
@@ -19,10 +20,9 @@
 	flex-wrap:wrap;
 }
 #face{
-	flex-basis:300px;
+	flex-basis:10px;
 	flex-grow:0;
 	display:flex;
-	margin-left:10px;
 }
 #faceImage{
 	flex-basis:350px;
@@ -103,6 +103,7 @@
 	height:20px;
 }
 #playAddMenu{
+	margin-top: auto;
 	display:flex;
 }
 #playAddMenu div{
@@ -123,7 +124,6 @@
 }
 
 #currentlyPlaying{
-	max-width:100%;
 	flex:0 0 50px;
 	background-color:grey;
 	display:flex;
@@ -160,20 +160,17 @@
 } 
 #currentAudio{
 		align-self:center;
-		width:550px;
+		flex-grow: 1;
 		height:30px;
 }
 #trackOptions{
-	margin-top:-50px;
-	flex-basis:350px;
-	align-self:center;
+	flex-basis:400px;
 	display:flex;
 	justify-content:space-around;
-	align-content:flex-end;
+	align-self: center;
 }
 .trackOption{
-	margin-left:-40px;
-	margin-top:40px;
+	margin: 10px;
 	color:white;
 }
 .trackOption img{
