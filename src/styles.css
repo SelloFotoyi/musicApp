@@ -20,8 +20,7 @@ body{
 	flex-wrap:wrap;
 }
 #face{
-	flex-basis:10px;
-	flex-grow:0;
+	flex-basis: 250px;
 	display:flex;
 }
 #faceImage{
@@ -49,7 +48,9 @@ body{
 	flex-direction:column;
 	margin-left:10px;
 }
-
+#chartHeadingSmall{
+	visibility: hidden;
+}
 #mainSettings{
 	margin-left:0px;
 	flex-grow:1;
@@ -200,4 +201,91 @@ body{
 	width:25px;
 	height:25px;
 	margin:5px;
+}
+
+@media screen and (max-width:600px){
+	#face{
+		display: flex;
+		flex-direction: column;
+		height:350px;
+	}
+	#faceImage{
+		height: 50%;
+		width: 50%;
+		align-self: center;
+		margin: 5%;
+	}
+	#face_img{
+		width:150px;
+		height:150px;
+	}
+	#chartInfo{
+		flex-wrap: nowrap;
+		flex-direction: column;
+		height: 100%;
+	}
+	#chartHeadingDiv{
+		height: 50%;
+		text-align: center;
+	}
+	#chartHeading{
+		display: none;
+	}
+	#chartHeadingSmall{
+		visibility: visible;
+
+	}
+	#upperTrackTitle{
+		text-align: center;
+	}
+	#upperArtistName{
+		text-align: center;
+	}
+	#songAdder{
+		display: none;
+	}
+	#playAddMenu{
+		justify-content: center;
+	}
+
+	#currentlyPlaying {
+		flex: 0 0 20px;
+		flex-direction: column;
+		height: 100px;
+	}
+	#currentSongDetails{
+		display: none;
+	}
+	#currentAudio{
+		margin-top: 10px;
+		height: 100px;
+		width: 90%;
+	}
+	.trackOption img{
+		width:50px;
+		height:50px;
+	}
+}
+@media screen and (max-width:390px){
+	#face{
+		display: flex;
+		flex-direction: column;
+		height:400px;
+	}
+	#faceImage{
+		height: 50%;
+		width: 50%;
+		align-self: center;
+		margin: 5%;
+	}
+	#face_img{
+		width:150px;
+		height:150px;
+	}
+}
+@media screen and (max-width:240px){
+	#face{
+		display: flex;
+		flex-direction: column;
+	}
 }
