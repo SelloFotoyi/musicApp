@@ -139,7 +139,6 @@ window.onload = function(){
 		var albumName = document.createElement("div");
 		albumName.innerHTML = defaultAlbum;
 		albumName.style.textAlign = "center";
-		albumName.style.display = "none";
 		var deleter = generateDeleter();
 		var trackDetail = generateTrackDetail();
 		
@@ -202,7 +201,6 @@ window.onload = function(){
 		let artistName = document.createElement("div");
 		artistName.style.textAlign = "center";
 		artistName.innerHTML = defaultArtist;
-		artistName.style.display = "none";
 		return artistName;
 	}
 	
@@ -213,6 +211,7 @@ window.onload = function(){
 		deleteImg.src = "src/icons/delete2.png";
 		deleteImg.style.width = "20px";
 		deleteImg.style.height = "20px";
+		deleter.style.border = "2px solid red";
 		deleter.appendChild(deleteImg);	
 		return deleter;
 	}
@@ -234,11 +233,12 @@ window.onload = function(){
 		
 		var trackDetailNodes = trackDetail.childNodes;
 		for(let node of trackDetailNodes){
-		//	node.style.flexBasis = "300px";
+			node.style.flexBasis = "300px";
 			node.style.alignSelf = "center";
 			node.style.padding = "3.5px";
 		}
 		trackDetailNodes[0].style.flexBasis = "10px";	
+		trackDetail.lastChild.style.flexBasis = "20px";
 		
 	}
 	
