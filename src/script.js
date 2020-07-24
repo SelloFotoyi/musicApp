@@ -39,7 +39,6 @@ window.onload = function(){
 	var settingsForm = document.getElementById("settingsForm");
 	var playingOrder = "Descending";
 	
-	
 	//add event listeners
 	nextTrack.addEventListener("click", next);
 	prevTrack.addEventListener("click", previous);
@@ -154,7 +153,7 @@ window.onload = function(){
 		highLightEvents(trackDetail);
 		
 		playList.appendChild(trackDetail);
-		reducePlayList();
+		responsiveness();
 		themeSettings();
 		
 		songDeleteEvents();
@@ -162,20 +161,71 @@ window.onload = function(){
 	
 	}//end:appendSong(i)
 	
+
+
+	function responsiveness(){
+		if(matchMedia){
+			const screen_600px = window.matchMedia("(max-width:600px)");
+			screen_600px.addListener(reduceTo600px);
+			reduceTo600px(screen_600px);
+		}
+	}
+
+	function reduceTo600px(screen_600px){
+		if(screen_600px.matches){
+			reducePlayList();
+		}
+		else{
+			restorePlaylist();
+		}
+
+	}
+
 	function reducePlayList(){
-		if(window.matchMedia('(max-width:600px)').matches){
-			let smallerPlaylist = playList.childNodes;
-			for(let smallerTrackDetail of smallerPlaylist){
-				for(let i = 0; i <smallerTrackDetail.length; i++){
-					if (i == 2){
-						let artist_name = smallerTrackDetail[i];
-						artist_name.style.display = "none";
-					}
-					if (i == 3){
-						let album_name = smallerTrackDetail[i];
-						album_name.style.display = "none";
-					}
-				}	
+	//	document.getElementById("upperArtistName").style.color = "red";
+		let smallerPlaylist = playList.childNodes;
+		for(let smallerTrackDetail of smallerPlaylist){
+			let track_detail = smallerTrackDetail.childNodes;
+
+			for(let i = 0; i <track_detail.length; i++){
+				if (i == 2){
+					let artist_name = track_detail[i];
+					artist_name.style.display = "none";
+				}
+				if (i == 3){
+					let album_name = track_detail[i];
+					album_name.style.display = "none";
+				}
+			}
+
+		}
+		
+	}
+
+/*	function reduceTrackName(track_name){
+		if(screen_600px.matches){
+			if(track_name_string>45){
+				track_name_string= track_name_string.substring(0,20)+"..."; 
+			}
+		}
+		track_name_string = track_name.innerHTML;
+
+	}*/
+
+	function restorePlaylist(){
+	//	document.getElementById("upperArtistName").style.color = "blue";
+		let smallerPlaylist = playList.childNodes;	
+		for(let smallerTrackDetail of smallerPlaylist){
+			let track_detail = smallerTrackDetail.childNodes;
+			for(let i = 0; i <track_detail.length; i++){
+				if (i == 2){
+					let artist_name = track_detail[i];
+					artist_name.style.display = "inline";
+				}
+				if (i == 3){
+					let album_name = track_detail[i];
+					album_name.style.display = "inline";
+				}
 			}	
 		}
 	}
@@ -190,8 +240,8 @@ window.onload = function(){
 	function generateTrackName(i){
 		let trackName = document.createElement("div");
 		let trkNm = playListArr[i].name;
-		if(trkNm.length > 50)//truncates track name
-			trackName.innerHTML = trkNm.substring(0,50)+"...";
+		if(trkNm.length > 30)//truncates track name
+			trackName.innerHTML = trkNm.substring(0,30)+"...";
 		else{
 			trackName.innerHTML = trkNm.substring(0,trkNm.length-4);
 		}
@@ -202,7 +252,6 @@ window.onload = function(){
 		let artistName = document.createElement("div");
 		artistName.style.textAlign = "center";
 		artistName.innerHTML = defaultArtist;
-	//	artistName.style.display = "none";
 		return artistName;
 	}
 	
