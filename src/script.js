@@ -8,7 +8,7 @@ window.onload = function(){
 	playList.style.backgroundColor = "white";
 	playList.style.color = "black";
 	playList.style.height = "250px";
-	playList.style.width = "98%";
+	playList.style.width = "97%";
 	playList.style.position = "relative";
 	playList.style.overflow = "scroll";
 	playList.style.overflowX = "hidden";
@@ -38,7 +38,8 @@ window.onload = function(){
 	var defaultAlbum = "Uknown Album";
 	var settingsForm = document.getElementById("settingsForm");
 	var playingOrder = "Descending";
-	
+	const screen_600px = window.matchMedia("(max-width:600px)");
+
 	//add event listeners
 	nextTrack.addEventListener("click", next);
 	prevTrack.addEventListener("click", previous);
@@ -90,8 +91,8 @@ window.onload = function(){
 				
 			image_fr.onload = function(){
 				document.getElementById("face_img").src = image_fr.result;
-				document.getElementById("face_img").style.height = "150px";
-				document.getElementById("face_img").style.width = "250px";
+				document.getElementById("face_img").style.height = "95%";
+				document.getElementById("face_img").style.width = "100%";
 				document.getElementById("footerImage").src = image_fr.result;
 				document.getElementById("footerImage").style.height = "50px";
 				document.getElementById("footerImage").style.width = "50px";
@@ -138,7 +139,6 @@ window.onload = function(){
 		var albumName = document.createElement("div");
 		albumName.innerHTML = defaultAlbum;
 		albumName.style.textAlign = "center";
-	//	albumName.style.display = "none";
 		var deleter = generateDeleter();
 		var trackDetail = generateTrackDetail();
 		
@@ -165,7 +165,6 @@ window.onload = function(){
 
 	function responsiveness(){
 		if(matchMedia){
-			const screen_600px = window.matchMedia("(max-width:600px)");
 			screen_600px.addListener(reduceTo600px);
 			reduceTo600px(screen_600px);
 		}
@@ -174,6 +173,8 @@ window.onload = function(){
 	function reduceTo600px(screen_600px){
 		if(screen_600px.matches){
 			reducePlayList();
+			adjustIcons();
+			adjustFaceImage();
 		}
 		else{
 			restorePlaylist();
@@ -182,7 +183,7 @@ window.onload = function(){
 	}
 
 	function reducePlayList(){
-	//	document.getElementById("upperArtistName").style.color = "red";
+		playList.style.width = "98%";
 		let smallerPlaylist = playList.childNodes;
 		for(let smallerTrackDetail of smallerPlaylist){
 			let track_detail = smallerTrackDetail.childNodes;
@@ -202,18 +203,8 @@ window.onload = function(){
 		
 	}
 
-/*	function reduceTrackName(track_name){
-		if(screen_600px.matches){
-			if(track_name_string>45){
-				track_name_string= track_name_string.substring(0,20)+"..."; 
-			}
-		}
-		track_name_string = track_name.innerHTML;
-
-	}*/
-
 	function restorePlaylist(){
-	//	document.getElementById("upperArtistName").style.color = "blue";
+		playList.style.width = "100%";
 		let smallerPlaylist = playList.childNodes;	
 		for(let smallerTrackDetail of smallerPlaylist){
 			let track_detail = smallerTrackDetail.childNodes;
@@ -230,6 +221,39 @@ window.onload = function(){
 		}
 	}
 
+	function adjustIcons(){
+		if(screen_600px.matches){
+			nextTrack.style.width = "50px";
+			nextTrack.style.height = "50px";
+			prevTrack.style.width = "50px";
+			prevTrack.style.height = "50px";
+			loopMusic.style.width = "50px";
+			loopMusic.style.height = "50px";
+			shuffleMusic.style.width = "50px";
+			shuffleMusic.style.height = "50px";
+		}
+		else{
+			nextTrack.style.width = "30px";
+			nextTrack.style.height = "30px";
+			prevTrack.style.width = "30px";
+			prevTrack.style.height = "30px";
+			loopMusic.style.width = "30px";
+			loopMusic.style.height = "30px";
+			shuffleMusic.style.width = "30px";
+			shuffleMusic.style.height = "30px";
+		}
+	}
+
+	function adjustFaceImage(){
+		if(screen_600px.matches){
+			document.getElementById("face_img").style.width = "150px";
+			document.getElementById("face_img").style.height = "150px";
+		}
+		else{
+			document.getElementById("face_img").style.width = "350px";
+			document.getElementById("face_img").style.height = "250px";			
+		}
+	}
 
 	function generateTrackNumber(i){
 		let trackNumber = document.createElement("div");
@@ -398,14 +422,7 @@ window.onload = function(){
 	
 	//chooses the next track in playlist
 	function next(){
-		
-	/*	if(playingOrder == "Descending"){
-			trackSrc.src = "";
-			previous();
-			return;
-		}*/
-
-		
+				
 		if (isShuffle){
 			shuffleSong();
 		}
@@ -438,12 +455,6 @@ window.onload = function(){
 	
 	//chooses previous track in playlist
 	function previous(){
-		
-	/*	if(playingOrder == "Descending"){
-		//	trackSrc.src = "";
-			next();
-			return;
-		}*/
 		
 		//same as in next() above
 		if (isShuffle){
@@ -492,15 +503,28 @@ window.onload = function(){
 		{//choose the loop enable icon
 			var loopOn = document.createElement("img");
 			loopOn.src = "src/icons/loop_on_2.png";
-			loopOn.style.width = "50px"; 
-			loopOn.style.height = "50px";
+			if(screen_600px.matches){
+				loopOn.style.width = "50px"; 
+				loopOn.style.height = "50px";
+			}
+			else{
+				loopOn.style.width = "30px"; 
+				loopOn.style.height = "30px";				
+			}
+
 			loopMusic.replaceChild(loopOn,loopMusic.firstChild);
 		}
 		else if (isLoop == false){//choose the loop disbled icon
 			var loopOff = document.createElement("img");
 			loopOff.src = "src/icons/loop_off_2.png";
-			loopOff.style.width = "50px"; 
-			loopOff.style.height = "50px";
+			if(screen_600px.matches){
+				loopOff.style.width = "50px"; 
+				loopOff.style.height = "50px";
+			}
+			else{
+				loopOff.style.width = "30px"; 
+				loopOff.style.height = "30px";				
+			}
 			loopMusic.replaceChild(loopOff,loopMusic.firstChild);			
 		}
 			
@@ -513,19 +537,31 @@ window.onload = function(){
 		if (isShuffle == true){
 			var shuffleOn = document.createElement("img");
 			shuffleOn.src = "src/icons/shuffle_on_2.png";
-			shuffleOn.style.width = "50px"; 
-			shuffleOn.style.height = "50px";
+			if(screen_600px.matches){
+				shuffleOn.style.width = "50px"; 
+				shuffleOn.style.height = "50px";
+			}
+			else{
+				shuffleOn.style.width = "30px"; 
+				shuffleOn.style.height = "30px";				
+			}
+
 			shuffleMusic.replaceChild(shuffleOn,shuffleMusic.firstChild);			
 		}
 		else if (isShuffle == false){
 			var shuffleOff = document.createElement("img");
 			shuffleOff.src = "src/icons/shuffle_off_2.png";
-			shuffleOff.style.width = "50px"; 
-			shuffleOff.style.height = "50px";
+			if(screen_600px.matches){
+				shuffleOff.style.width = "50px"; 
+				shuffleOff.style.height = "50px";
+			}
+			else{
+				shuffleOff.style.width = "30px"; 
+				shuffleOff.style.height = "30px";				
+			}
+
 			shuffleMusic.replaceChild(shuffleOff,shuffleMusic.firstChild);			
 		}
-	
-		
 	}
 	
 	function highLight(){
@@ -587,15 +623,15 @@ window.onload = function(){
 	}
 	
 	function settings(){
-		
-		document.getElementById("chartHeading").innerHTML = 
+			document.getElementById("chartHeadingSmall").innerHTML = 
 			settingsForm.elements["chartName"].value;
+	
+			document.getElementById("chartHeading").innerHTML = 
+			settingsForm.elements["chartName"].value;			
+
 		themeSettings();
 		uploadFont();
-		closeSettings();
-	/*	playingOrder = settingsForm.elements["playingOrder"].value;
-		if (playingOrder == "Shuffled")
-			shuffleMusic();	*/		
+		closeSettings();	
 	}
 	
 	//handles coloring
