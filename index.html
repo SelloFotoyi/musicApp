@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-    <title>Zile | Music Chart</title>
+    <title>Sello C. Fotoyi | Music App</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width", initial-scale="1">
     <link rel = "stylesheet" type = "text/css" href = "src/styles.css">
@@ -37,7 +37,10 @@
 							<img src = "src/icons/play5.png" width = "15px" height = "15px"> 
 						to initiate playlist
 				</div>
-                <div id = "upperTrackTitle">Click <img src = "src/icons/setting2.png" width = "15px" height = "15px"> for customization </div>
+                <div id = "upperTrackTitle">
+                    Click <img src = "src/icons/setting2.png" width = "15px" height = "15px"> for customization <br>
+                    Click on <img src = "src/default_image.png" width = "15px" height = "15px"> to change default image
+                </div>
                 <div id = "playAddMenu">
                     <div id = "songAdder">
                         <input style = "display:none" id = "songAddInput" type = "file" name = "songAddInput" multiple accept = ".mp3">
@@ -67,7 +70,14 @@
                 </form>
             </div>
         </div>
-        <!--playlist added here in js-->
+        <div id="playListInfo">
+            <p>
+                Click 
+                <img src = "src/icons/add_solid.png" height = "20px" width = "20px">
+                 to load your mp3 files here...
+            </p>
+           
+        </div>
     </div>
         
     <div id = "currentlyPlaying">

@@ -16,7 +16,8 @@ window.onload = function(){
 	playList.style.border = "5px solid white";
 	playList.style.display = "flex"; //it's a flex container
 	playList.style.flexDirection = "column";
-	document.getElementById("upperSection").appendChild(playList);
+//	document.getElementById("upperSection").appendChild(playList);
+
 	
 	
 	//some variables
@@ -39,7 +40,7 @@ window.onload = function(){
 	var settingsForm = document.getElementById("settingsForm");
 	var playingOrder = "Descending";
 	const screen_600px = window.matchMedia("(max-width:600px)");
-
+	var infoC = 0;
 	//add event listeners
 	nextTrack.addEventListener("click", next);
 	prevTrack.addEventListener("click", previous);
@@ -153,6 +154,14 @@ window.onload = function(){
 		highLightEvents(trackDetail);
 		
 		playList.appendChild(trackDetail);
+		if(infoC == 0){
+			document.getElementById("upperSection").replaceChild(
+				playList,document.getElementById("playListInfo")
+			);
+			document.getElementById("chartHeading").innerHTML = "My Music Playlist";
+			document.getElementById("chartHeadingSmall").innerHTML = "My Music Playlist";
+			infoC++;
+		}
 		responsiveness();
 		themeSettings();
 		
@@ -204,7 +213,7 @@ window.onload = function(){
 	}
 
 	function restorePlaylist(){
-		playList.style.width = "100%";
+		playList.style.width = "99%";
 		let smallerPlaylist = playList.childNodes;	
 		for(let smallerTrackDetail of smallerPlaylist){
 			let track_detail = smallerTrackDetail.childNodes;
