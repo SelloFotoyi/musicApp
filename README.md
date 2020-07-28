@@ -1,5 +1,6 @@
 # musicApp
 <h6>Music player web application</h6>
+[link](https://SelloFotoyi.github.io/musicApp) 
 * The purpose of this project was to explore my basic knowledge of HTML, CSS and Javascript. At its inception, I had few ideas on the features and for this release/version, the following checked list of features have been accomplished:
 - [x] user can upload and play mp3 files
 - [x] theme color, font style and default image can be changed
