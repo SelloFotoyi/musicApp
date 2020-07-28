@@ -14,4 +14,4 @@
 * Bug:
   * A song deletion from the playlist increments the logic of selecting a song by the number of deletions made. For instance, after deleting a particular song from the playlist and clicking on any song you want to play, the app will play the suceeding song on the list.   
 
-[link](https://SelloFotoyi.github.io/musicApp) 
+[link](https://sellofotoyi.github.io/musicApp) 
