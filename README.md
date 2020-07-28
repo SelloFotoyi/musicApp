@@ -1,12 +1,14 @@
 # musicApp
 <h6>Music player web application</h6>
+[demo](https://sellofotoyi.github.io/musicApp) 
+
  The purpose of this project was to explore my basic knowledge of HTML, CSS and Javascript. At its inception, I had few ideas on the features and for this release/version, the following checked list of features have been accomplished:
  
 - [x] user can upload and play mp3 files
 - [x] theme color, font style and default image can be changed
 - [x] a song from the playlist can be played by clicking on it, as well as deleting it by clikcing its corresponding delete icon 
-- [] the app can extract metadata (artist, album etc) from the loaded mp3 files
-- [] a styled, non-default audio element
+- [ ] the app can extract metadata (artist, album etc) from the loaded mp3 files
+- [ ] a styled, non-default audio element
 
 * The next release(s) will check all those unchecked set features
 * A Javascript framework was not used for the following reasons:
@@ -15,4 +17,4 @@
 * Bug:
   * A song deletion from the playlist increments the logic of selecting a song by the number of deletions made. For instance, after deleting a particular song from the playlist and clicking on any song you want to play, the app will play the suceeding song on the list.   
 
-[demo](https://sellofotoyi.github.io/musicApp) 
+
